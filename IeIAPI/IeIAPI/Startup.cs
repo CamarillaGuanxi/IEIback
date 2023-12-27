@@ -1,12 +1,14 @@
-﻿namespace IeIAPI
+﻿
+namespace IeIAPI
 {
+    
     public class Startup
     {
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
-
+ 
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
@@ -28,7 +30,12 @@
             {
                 app.UseDeveloperExceptionPage();
             }
+            // Configuración de la base de la ruta si es necesario
+            app.UsePathBase("/myapp");
 
+            // Configuración adicional...
+
+          
             app.UseCors("AllowRender");
 
             app.UseHttpsRedirection();
