@@ -10,8 +10,8 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["IeIAPI/IeIAPI.csproj", "IeIAPI/"]
-RUN dotnet restore "IeIAPI/IeIAPI.csproj"
+COPY ["IeIAPI/IeIAPI/IeIAPI.csproj", "IeIAPI/"]
+RUN dotnet restore "IeIAPI/IeIAPI/IeIAPI.csproj"
 COPY . .
 WORKDIR "/src/IeIAPI"
 RUN dotnet build "IeIAPI.csproj" -c Release -o /app/build
