@@ -13,7 +13,6 @@ WORKDIR /src
 COPY ["IeIAPI.csproj", "./"]
 RUN dotnet restore "IeIAPI.csproj"
 COPY . .
-WORKDIR "/src/IeIAPI"
 RUN dotnet build "IeIAPI.csproj" -c Release -o /app/build
 
 FROM build AS publish
