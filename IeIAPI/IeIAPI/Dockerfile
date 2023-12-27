@@ -1,24 +1,33 @@
-#See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
-
-#Depending on the operating system of the host machines(s) that will build or run the containers, the image specified in the FROM statement may need to be changed.
-#For more information, please see https://aka.ms/containercompat
-
+# Utiliza la imagen de SDK de .NET 6.0 como base
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS base
 WORKDIR /app
+
+# Exponer los puertos que la aplicación utilizará
 EXPOSE 80
 EXPOSE 443
 
+# Fase de construcción
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
+
+# Copiar el archivo de proyecto y restaurar las dependencias
 COPY ["IeIAPI.csproj", "./"]
 RUN dotnet restore "IeIAPI.csproj"
+
+# Copiar el resto de los archivos y compilar la aplicación
 COPY . .
 RUN dotnet build "IeIAPI.csproj" -c Release -o /app/build
 
+# Fase de publicación
 FROM build AS publish
 RUN dotnet publish "IeIAPI.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
+# Imagen final
 FROM base AS final
 WORKDIR /app
+
+# Copiar los archivos publicados desde la fase de publicación
 COPY --from=publish /app/publish .
+
+# Definir el punto de entrada para la aplicación
 ENTRYPOINT ["dotnet", "IeIAPI.dll"]
