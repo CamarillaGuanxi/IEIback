@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
-
+using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
 namespace IeIAPI
 {
     public class Program
