@@ -51,8 +51,8 @@ namespace IeIAPI
         [HttpGet]
         public ActionResult<String> Get()
         {
-            var yourModels = this.GetYourModels();
-            return "Estos son los datos desde el backend " + yourModels.ToString();
+            //var yourModels = this.GetYourModels();
+            return "Estos son los datos desde el backend ";
         }
 
     }
