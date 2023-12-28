@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using MySql.Data.MySqlClient;
-
+using Microsoft.Extensions.Configuration;
+using System.Collections.Generic;
 namespace IeIAPI
 {
     [ApiController]
