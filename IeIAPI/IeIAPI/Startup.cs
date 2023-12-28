@@ -1,6 +1,15 @@
 ﻿
 using Microsoft.Extensions.Options;
+using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
 
+using Newtonsoft.Json;
 namespace IeIAPI
 {
     
@@ -24,6 +33,11 @@ namespace IeIAPI
                       .AllowAnyMethod()
                       .AllowAnyHeader());
             });
+            using (MySqlConnection connection = new MySqlConnection(Configuration.GetConnectionString("DefaultConnection")))
+            {
+                connection.Open();
+                // Ejecutar comandos SQL aquí
+            }
             services.AddControllers();
         }
 
@@ -47,7 +61,7 @@ namespace IeIAPI
 
             // Configuración adicional...
 
-           
+            app.UseCors("AllowRender");
 
             app.UseHttpsRedirection();
 

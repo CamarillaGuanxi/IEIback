@@ -37,5 +37,8 @@
       "applicationUrl": "http://localhost:47236",
       "sslPort": 44354
     }
+  },
+  "ConnectionStrings": {
+    "DefaultConnection": "$\"Server=roundhouse.proxy.rlwy.net;Port=56581;Database=railway;User Id={root};Password={gfG13156CABHDdcf151AbB6F1c212a1C};CharSet=utf8mb4;"
   }
 }
