@@ -9,7 +9,7 @@ namespace IeIAPI
     [Route("api/datos")]
     public class DatosController : ControllerBase
     {
-        private readonly IeIAPI.DataAccess _dataAccess;
+        private readonly IeIAPI.DataAccess dataAccess;
         private static string host = "roundhouse.proxy.rlwy.net";
         private static int port = 56581;
         private static string database = "railway";
@@ -18,13 +18,13 @@ namespace IeIAPI
         public DatosController(IConfiguration configuration)
         {
             string connectionString = $"Server={host};Port={port};Database={database};User Id={user};Password={password};CharSet=utf8mb4;";
-            _dataAccess = new IeIAPI.DataAccess(connectionString);
+            dataAccess = new IeIAPI.DataAccess(connectionString);
         }
 
         [HttpGet]
         public ActionResult<IEnumerable<object>> Get()
         {
-            var yourModels = _dataAccess.GetYourModels();
+            var yourModels = dataAccess.GetYourModels();
             return Ok(yourModels);
         }
 
