@@ -3,7 +3,8 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 
 # Copiar archivos de proyecto y restaurar dependencias
-COPY "./IeIAPI.csproj"
+COPY "./IeIAPI.csproj" .
+
 RUN dotnet restore
 
 # Copiar el resto de la aplicación y compilar
