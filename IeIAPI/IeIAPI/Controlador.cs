@@ -8,11 +8,11 @@ namespace IeIAPI
     [Route("api/datos")]
     public class DatosController : ControllerBase
     {
-        private readonly DataAccess _dataAccess;
+        private readonly IeIAPI.DataAccess _dataAccess;
 
         public DatosController(IConfiguration configuration)
         {
-            _dataAccess = new DataAccess(configuration.GetConnectionString("DefaultConnection"));
+            _dataAccess = new IeIAPI.DataAccess(configuration.GetConnectionString("DefaultConnection"));
         }
 
         [HttpGet]
