@@ -27,7 +27,7 @@ namespace IeIAPI
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             // Configuración de la base de la ruta si es necesario
-            app.UsePathBase("/myapp");
+         
 
             if (env.IsDevelopment())
             {
