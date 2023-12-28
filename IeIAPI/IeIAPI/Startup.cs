@@ -1,4 +1,6 @@
 ﻿
+using Microsoft.Extensions.Options;
+
 namespace IeIAPI
 {
     
@@ -15,28 +17,37 @@ namespace IeIAPI
         {
             services.AddCors(options =>
             {
-                options.AddPolicy("AllowRender",
-                    builder => builder.WithOrigins("https://ieiapi.onrender.com/api/datos")
-                                      .AllowAnyMethod()
-                                      .AllowAnyHeader());
+          
+           
+            options.AddPolicy("AllowRender",
+            builder => builder.AllowAnyOrigin()  // Permitir solicitudes desde cualquier origen
+                      .AllowAnyMethod()
+                      .AllowAnyHeader());
             });
-
             services.AddControllers();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             // Configuración de la base de la ruta si es necesario
-         
+
 
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseCors("AllowRender");
+
+                // Agregar registros de depuración
+                app.Use(async (context, next) =>
+                {
+                    Console.WriteLine($"Request: {context.Request.Path}");
+                    await next.Invoke();
+                });
             }
 
             // Configuración adicional...
 
-            app.UseCors("AllowRender");
+           
 
             app.UseHttpsRedirection();
 
