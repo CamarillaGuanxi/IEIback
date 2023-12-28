@@ -49,10 +49,10 @@ namespace IeIAPI
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<object>> Get()
+        public ActionResult<String> Get()
         {
             var yourModels = this.GetYourModels();
-            return Ok(yourModels);
+            return "Estos son los datos desde el backend " + yourModels.ToString();
         }
 
     }

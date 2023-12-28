@@ -23,4 +23,5 @@ COPY --from=publish /app/publish .
 
 # Definir el punto de entrada para la aplicación
 EXPOSE 5000
+EXPOSE 56581
 CMD ["dotnet", "IeIAPI.dll"]
