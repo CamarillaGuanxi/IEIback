@@ -33,11 +33,7 @@ namespace IeIAPI
                       .AllowAnyMethod()
                       .AllowAnyHeader());
             });
-            using (MySqlConnection connection = new MySqlConnection(Configuration.GetConnectionString("DefaultConnection")))
-            {
-                connection.Open();
-                // Ejecutar comandos SQL aquí
-            }
+           
             services.AddControllers();
         }
 

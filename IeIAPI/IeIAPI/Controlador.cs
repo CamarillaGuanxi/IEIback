@@ -6,11 +6,19 @@ namespace IeIAPI
     [Route("api/datos")]
     public class DatosController : ControllerBase
     {
-        [HttpGet]
-        public ActionResult<string> ObtenerDatos()
+        private readonly DataAccess _dataAccess;
+
+        public DatosController(IConfiguration configuration)
         {
-            // Lógica para obtener datos desde el backend
-            return "Estos son los datos desde el backend";
+            _dataAccess = new DataAccess(configuration.GetConnectionString("DefaultConnection"));
         }
+
+        [HttpGet]
+        public ActionResult<IEnumerable<object>> Get()
+        {
+            var yourModels = _dataAccess.GetYourModels();
+            return Ok(yourModels);
+        }
+
     }
 }
