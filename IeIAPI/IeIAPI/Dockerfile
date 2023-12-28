@@ -30,4 +30,5 @@ WORKDIR /app
 COPY --from=publish /app/publish .
 
 # Definir el punto de entrada para la aplicación
-ENTRYPOINT ["dotnet", "IeIAPI.dll"]
+EXPOSE 5000
+CMD ["dotnet", "IeIAPI.dll"]
