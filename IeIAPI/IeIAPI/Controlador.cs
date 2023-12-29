@@ -9,11 +9,11 @@ namespace IeIAPI
     [Route("api/datos")]
     public class DatosController : ControllerBase
     {
-        private static string host = "roundhouse.proxy.rlwy.net";
-        private static int port = 56581;
+        private static string host = "monorail.proxy.rlwy.net";
+        private static int port = 25026;
         private static string database = "railway";
         private static string user = "root";
-        private static string password = "gfG13156CABHDdcf151AbB6F1c212a1C";
+        private static string password = "HA2A2baGAEH2B1f-4A42b1g6c2EbGaB4";
         private static string connectionString = $"Server={host};Port={port};Database={database};User Id={user};Password={password};CharSet=utf8mb4;";
          
 
@@ -51,8 +51,8 @@ namespace IeIAPI
         [HttpGet]
         public ActionResult<String> Get()
         {
-            //var yourModels = this.GetYourModels();
-            return "Estos son los datos desde el backend ";
+            var yourModels = this.GetYourModels();
+            return "Estos son los datos desde el backend "+  this.GetYourModels();
         }
 
     }
