@@ -49,10 +49,17 @@ namespace IeIAPI
         }
 
         [HttpGet]
-        public ActionResult<String> Get()
+        public ActionResult<IEnumerable<object>> Get()
         {
-            var yourModels = this.GetYourModels();
-            return "Estos son los datos desde el backend "+  this.GetYourModels();
+            try
+            {
+                var yourModels = this.GetYourModels();
+                return Ok(yourModels);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal Server Error: {ex.Message}");
+            }
         }
 
     }
