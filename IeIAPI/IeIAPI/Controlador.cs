@@ -36,7 +36,7 @@ namespace IeIAPI
                             {
                                 Id = (int)reader["Codigo"],
                                 nombre = (string)reader["Nombre"],
-                                en_provincia = (int)reader["EnProvincia"],
+                                en_provincia = (int)reader["en_provincia"],
                             };
 
                             result.Add(model);
