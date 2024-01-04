@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-
+using Newtonsoft.Json;
 namespace IeIAPI
 {
     [ApiController]
@@ -38,8 +38,9 @@ namespace IeIAPI
                     numeros[2] = 0; // Corregidos
                     Console.WriteLine("\n-------------------------------");
                     Console.WriteLine("Inicio de extraccion 1");
-                    string jsonFilePath = @"C:\Users\Administrador.WIN-2O4P6U7CI32\source\repos\IeiBACK\IeIAPI\IeIAPI\resultadoXML.json";
-                    String json = File.ReadAllText(jsonFilePath);
+                    string jsonFilePath = "./resultadoXML.json";
+                    string json = System.IO.File.ReadAllText(jsonFilePath);
+
                     Console.WriteLine("data" + json);
                     try
                     {
