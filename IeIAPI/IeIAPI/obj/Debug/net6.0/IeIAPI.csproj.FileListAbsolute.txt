@@ -59,3 +59,14 @@ C:\Users\Administrador.WIN-2O4P6U7CI32\source\repos\IeiBACK\IeIAPI\IeIAPI\obj\De
 C:\Users\Administrador.WIN-2O4P6U7CI32\source\repos\IeiBACK\IeIAPI\IeIAPI\obj\Debug\net6.0\IeIAPI.pdb
 C:\Users\Administrador.WIN-2O4P6U7CI32\source\repos\IeiBACK\IeIAPI\IeIAPI\obj\Debug\net6.0\IeIAPI.genruntimeconfig.cache
 C:\Users\Administrador.WIN-2O4P6U7CI32\source\repos\IeiBACK\IeIAPI\IeIAPI\obj\Debug\net6.0\ref\IeIAPI.dll
+C:\Users\Administrador.WIN-2O4P6U7CI32\source\repos\IeiBACK\IeIAPI\IeIAPI\bin\Debug\net6.0\selenium-manager\linux\selenium-manager
+C:\Users\Administrador.WIN-2O4P6U7CI32\source\repos\IeiBACK\IeIAPI\IeIAPI\bin\Debug\net6.0\selenium-manager\macos\selenium-manager
+C:\Users\Administrador.WIN-2O4P6U7CI32\source\repos\IeiBACK\IeIAPI\IeIAPI\bin\Debug\net6.0\selenium-manager\windows\selenium-manager.exe
+C:\Users\Administrador.WIN-2O4P6U7CI32\source\repos\IeiBACK\IeIAPI\IeIAPI\bin\Debug\net6.0\SeleniumExtras.WaitHelpers.dll
+C:\Users\Administrador.WIN-2O4P6U7CI32\source\repos\IeiBACK\IeIAPI\IeIAPI\bin\Debug\net6.0\WebDriver.dll
+C:\Users\Administrador.WIN-2O4P6U7CI32\source\repos\IeiBACK\IeIAPI\IeIAPI\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\Administrador.WIN-2O4P6U7CI32\source\repos\IeiBACK\IeIAPI\IeIAPI\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\Administrador.WIN-2O4P6U7CI32\source\repos\IeiBACK\IeIAPI\IeIAPI\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\Administrador.WIN-2O4P6U7CI32\source\repos\IeiBACK\IeIAPI\IeIAPI\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\Administrador.WIN-2O4P6U7CI32\source\repos\IeiBACK\IeIAPI\IeIAPI\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Administrador.WIN-2O4P6U7CI32\source\repos\IeiBACK\IeIAPI\IeIAPI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

@@ -22,24 +22,22 @@ namespace IeIAPI
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
-        { 
-            services.AddCors(options =>
+        {
+           /* services.AddCors(options =>
             {
-          
-           
-            options.AddPolicy("AllowRender",
-            builder => builder.AllowAnyOrigin()  // Permitir solicitudes desde cualquier origen
-                      .AllowAnyMethod()
-                      .AllowAnyHeader());
-            });
-           
+                options.AddPolicy("AllowRender",
+                    builder => builder.AllowAnyOrigin()
+                                      .AllowAnyMethod()
+                                      .AllowAnyHeader());
+            });*/
+
             services.AddControllers();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             // Configuración de la base de la ruta si es necesario
-
+        
 
             if (env.IsDevelopment())
             {
