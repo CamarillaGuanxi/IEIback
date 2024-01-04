@@ -72,7 +72,7 @@ public IActionResult ProcesarDatos([FromBody] string lines)
     [HttpPost]
     [Route("CAT")]
 
-        public IActionResult ProcesarCATDatos([FromBody] XDocument doc)
+        public IActionResult ProcesarCATDatos([FromBody] String doc)
         {
             try
             {
@@ -90,8 +90,8 @@ public IActionResult ProcesarDatos([FromBody] string lines)
                     Console.WriteLine("Inicio de extraccion 1");
 
                     
-                 
-                    string json = Extractor2XML.Extractor2(numeros, doc);
+                    XDocument xdoc = XDocument.Parse(doc);
+                    string json = Extractor2XML.Extractor2(numeros, xdoc);
                     Console.WriteLine("data" + json);
                     try
                     {
