@@ -8,9 +8,10 @@ COPY . .
 RUN dotnet build -c Release -o /app/build
 
 # Use ADD to copy CSV and XML files
-ADD ./CV.csv .
-ADD ./CAT.xml .
-
+COPY ./CV.csv .
+COPY ./CAT.xml .
+# Debugging commands
+RUN ls -al /app
 # Fase de publicación
 FROM build AS publish
 RUN dotnet publish -c Release -o /app/publish /p:UseAppHost=false
