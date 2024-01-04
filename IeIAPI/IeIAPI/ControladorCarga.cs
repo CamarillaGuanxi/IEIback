@@ -12,6 +12,7 @@ namespace IeIAPI
 {
     [ApiController]
     [Route("api/carga")]
+    
     public class ControladorCarga : ControllerBase
     {
         private static string host = "monorail.proxy.rlwy.net";
@@ -21,22 +22,23 @@ namespace IeIAPI
         private static string password = "HA2A2baGAEH2B1f-4A42b1g6c2EbGaB4";
         private static string connectionString = $"Server={host};Port={port};Database={database};User Id={user};Password={password};CharSet=utf8mb4;";
 
-        [HttpPost]
-        [Route("CSV")]
-       public IActionResult ProcesarDatos([FromBody] string [] lines)
-    {
+     [HttpPost]
+[Route("CSV")]
+public IActionResult ProcesarDatos([FromBody] string[] lines)
+{
     try
     {
         using (MySqlConnection connection = new MySqlConnection(connectionString))
         {
             connection.Open();
+
             int[] numeros = new int[4];
             numeros[0] = 0; // Código localidad
             numeros[1] = 0; // Buenos
             numeros[2] = 0; // Corregidos
 
             // Procesar líneas CSV
-            string json = Extractor1CSV.Extractor1(numeros, lines.ToArray());
+            string json = Extractor1CSV.Extractor1(numeros, lines);
 
             try
             {
@@ -66,8 +68,7 @@ namespace IeIAPI
         Console.WriteLine($"Error: {ex.Message}");
         return StatusCode(500, $"Internal Server Error: {ex.Message}");
     }
-    }
-        // Define your database insertion methods (InsertIntoProvincia, InsertIntoLocalidad, InsertIntoCentroEducativo) here
+}
 
 
 
