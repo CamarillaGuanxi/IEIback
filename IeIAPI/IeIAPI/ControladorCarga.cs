@@ -18,8 +18,7 @@ namespace IeIAPI
         private static string password = "HA2A2baGAEH2B1f-4A42b1g6c2EbGaB4";
         private static string connectionString = $"Server={host};Port={port};Database={database};User Id={user};Password={password};CharSet=utf8mb4;";
 
-        [HttpPost]
-        [Route("CSV")]
+
         public ActionResult<IEnumerable<object>> PostDatos()
         {
             try
@@ -33,7 +32,7 @@ namespace IeIAPI
                     numeros[2] = 0; // Corregidos
                     Console.WriteLine("\n-------------------------------");
                     Console.WriteLine("Inicio de extraccion 1");
-                    numeros = Extractor1CSV.Extractor1(numeros, connection);
+                   // numeros = Extractor1CSV.Extractor1(numeros, connection);
                 }
 
                 return Ok(new { Mensaje = "Datos procesados desde la ruta 'api/carga/CSV'" });
