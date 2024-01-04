@@ -25,12 +25,12 @@ namespace IeIAPI
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<FormOptions>(options =>
+         /*   services.Configure<FormOptions>(options =>
 {
     options.ValueCountLimit = int.MaxValue;
     options.MultipartBodyLengthLimit = long.MaxValue;
     options.MemoryBufferThreshold = int.MaxValue;
-});
+});*/
             services.Configure<IISServerOptions>(options =>
             {
                 options.AllowSynchronousIO = true;
