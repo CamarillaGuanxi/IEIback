@@ -169,14 +169,14 @@ namespace IeIAPI
                     numeros[2] = 0; // Corregidos
                     Console.WriteLine("\n-------------------------------");
                     Console.WriteLine("Inicio de extraccion 1");
-                    /*string jsonFilePath = "./resultadoXML.json";
+                    string jsonFilePath = "./resultadoXML.json";
                     string json = System.IO.File.ReadAllText(jsonFilePath);
-                    */
-                    string xmlFilePath = Path.Combine(Directory.GetCurrentDirectory(), "IeIAPI", "IeIAPI", "CAT.xml");
+                    
+                   
 
                    
                    
-                    string json = Extractor3JSON.ExtractorJSON(numeros, jsonData);
+                    //string json = Extractor3JSON.ExtractorJSON(numeros, jsonData);
                     Console.WriteLine("data" + json);
                     try
                     {
