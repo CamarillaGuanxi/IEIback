@@ -21,62 +21,52 @@ namespace IeIAPI
         private static string password = "HA2A2baGAEH2B1f-4A42b1g6c2EbGaB4";
         private static string connectionString = $"Server={host};Port={port};Database={database};User Id={user};Password={password};CharSet=utf8mb4;";
 
-        [HttpPost]
+        [HttpGet]
         [Route("CSV")]
-        public IActionResult ProcesarDatos()
+       public IActionResult ProcesarDatos([FromBody] List<string> lines)
+    {
+    try
+    {
+        using (MySqlConnection connection = new MySqlConnection(connectionString))
         {
+            connection.Open();
+            int[] numeros = new int[4];
+            numeros[0] = 0; // Código localidad
+            numeros[1] = 0; // Buenos
+            numeros[2] = 0; // Corregidos
+
+            // Procesar líneas CSV
+            string json = Extractor1CSV.Extractor1(numeros, lines.ToArray());
+
             try
             {
-                using (StreamReader reader = new StreamReader(Request.Body))
+                List<string> c_e = new List<string>();
+                List<int> pr = new List<int>();
+                List<int> loc = new List<int>();
+                dynamic[] dataArray = JsonConvert.DeserializeObject<dynamic[]>(json);
+
+                Console.WriteLine("Conexión exitosa!");
+                foreach (dynamic data in dataArray)
                 {
-                    // Leer el contenido CSV desde la solicitud
-                    string csvContent = reader.ReadToEnd();
-
-                    // Dividir las líneas del CSV
-                    string[] lines = csvContent.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-
-                    using (MySqlConnection connection = new MySqlConnection(connectionString))
-                    {
-                        connection.Open();
-
-                        int[] numeros = new int[4];
-                        numeros[0] = 0; // Código localidad
-                        numeros[1] = 0; // Buenos
-                        numeros[2] = 0; // Corregidos
-
-                        // Procesar líneas CSV
-                        string json = Extractor1CSV.Extractor1(numeros, lines);
-
-                        try
-                        {
-                            List<string> c_e = new List<string>();
-                            List<int> pr = new List<int>();
-                            List<int> loc = new List<int>();
-                            dynamic[] dataArray = JsonConvert.DeserializeObject<dynamic[]>(json);
-
-                            Console.WriteLine("Conexión exitosa!");
-                            foreach (dynamic data in dataArray)
-                            {
-                                InsertIntoProvincia(connection, data);
-                                InsertIntoLocalidad(connection, data);
-                                InsertIntoCentroEducativo(connection, data);
-                            }
-                        }
-                        catch (SqlException ex)
-                        {
-                            // Manejar la excepción de SQL
-                        }
-
-                        return Ok(new { Mensaje = "Datos procesados desde la ruta 'api/carga/CSV'" });
-                    }
+                    InsertIntoProvincia(connection, data);
+                    InsertIntoLocalidad(connection, data);
+                    InsertIntoCentroEducativo(connection, data);
                 }
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                Console.WriteLine($"Error: {ex.Message}");
-                return StatusCode(500, $"Internal Server Error: {ex.Message}");
+                // Manejar la excepción de SQL
             }
+
+            return Ok(new { Mensaje = "Datos procesados desde la ruta 'api/carga/CSV'" });
         }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error: {ex.Message}");
+        return StatusCode(500, $"Internal Server Error: {ex.Message}");
+    }
+    }
         // Define your database insertion methods (InsertIntoProvincia, InsertIntoLocalidad, InsertIntoCentroEducativo) here
 
 
