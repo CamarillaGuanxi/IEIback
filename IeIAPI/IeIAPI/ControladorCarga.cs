@@ -97,7 +97,7 @@ namespace IeIAPI
         [Route("TEST")]
         public IActionResult ProcesarTest() {
 
-            string rutaDirectorio = "./";
+            string rutaDirectorio = "../";
 
             // Verificar si la ruta del directorio existe
             if (Directory.Exists(rutaDirectorio))
