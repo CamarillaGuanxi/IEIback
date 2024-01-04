@@ -94,8 +94,30 @@ namespace IeIAPI
         }
 
         [HttpGet]
-        [Route("CAT")]
+        [Route("TEST")]
+        public IActionResult ProcesarTest() {
 
+            string rutaDirectorio = "./";
+
+            // Verificar si la ruta del directorio existe
+            if (Directory.Exists(rutaDirectorio))
+            {
+                // Obtener todos los archivos en la ruta del directorio
+                string[] archivos = Directory.GetFiles(rutaDirectorio);
+
+                // Mostrar los nombres de los archivos por pantalla
+                foreach (string archivo in archivos)
+                {
+                    Console.WriteLine(archivo);
+                }
+            }
+            else
+            {
+                Console.WriteLine("La ruta del directorio no existe.");
+            }
+            return Ok(new { Mensaje = "Datos procesados desde la ruta 'api/carga/CSV'" });
+        }
+    
         public IActionResult ProcesarCATDatos()
         {
             try
