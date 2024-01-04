@@ -38,9 +38,10 @@ namespace IeIAPI
                     numeros[2] = 0; // Corregidos
                     Console.WriteLine("\n-------------------------------");
                     Console.WriteLine("Inicio de extraccion 1");
-                    string jsonFilePath = "./resultadoXML.json";
+                    /*string jsonFilePath = "./resultadoXML.json";
                     string json = System.IO.File.ReadAllText(jsonFilePath);
-
+                    */
+                    string json = Extractor1CSV.Extractor1(numeros);
                     Console.WriteLine("data" + json);
                     try
                     {
