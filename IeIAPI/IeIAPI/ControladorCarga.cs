@@ -68,11 +68,9 @@ public IActionResult ProcesarDatos([FromBody] string lines)
         return StatusCode(500, $"Internal Server Error: {ex.Message}");
     }
 }
-
-    [HttpPost]
-    [Route("CAT")]
-
-        public IActionResult ProcesarCATDatos([FromBody] String doc)
+        [HttpPost]
+        [Route("CAT")]
+        public IActionResult ProcesarCATDatos([FromBody] XDocument doc)
         {
             try
             {
@@ -90,10 +88,9 @@ public IActionResult ProcesarDatos([FromBody] string lines)
                     Console.WriteLine("Inicio de extraccion 1");
 
 
-                    XDocument xdoc = XDocument.Load(new StringReader(doc), LoadOptions.PreserveWhitespace | LoadOptions.SetLineInfo);
+                    
 
-
-                    string json = Extractor2XML.Extractor2(numeros, xdoc);
+                    string json = Extractor2XML.Extractor2(numeros, doc);
                     Console.WriteLine("data" + json);
                     try
                     {
