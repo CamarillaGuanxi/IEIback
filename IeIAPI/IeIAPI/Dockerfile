@@ -11,7 +11,7 @@ COPY . .
 RUN dotnet build -c Release -o /app/build
 
 # Agregar líneas para copiar archivos CSV y XML
-COPY ./CV.csv /app
+COPY ./cs.csv /app
 COPY ./CAT.xml /app
 
 # Fase de publicación
