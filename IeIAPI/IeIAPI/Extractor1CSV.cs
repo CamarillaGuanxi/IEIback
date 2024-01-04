@@ -222,10 +222,6 @@ namespace IeIAPI
 
                     string json = JsonConvert.SerializeObject(dataList, Newtonsoft.Json.Formatting.Indented);
                     Console.WriteLine(json);
-                    // Escribir JSON a un archivo
-                   // File.WriteAllText("./resultado.json", json);
-
-                    Console.WriteLine("Archivo JSON generado exitosamente. (CSV)");
                     return json;
 
                 }

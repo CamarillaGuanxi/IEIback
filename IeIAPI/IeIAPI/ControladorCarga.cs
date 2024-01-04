@@ -69,8 +69,9 @@ public IActionResult ProcesarDatos([FromBody] string[] lines)
         return StatusCode(500, $"Internal Server Error: {ex.Message}");
     }
 }
-
-
+/*
+    [HttpPost]
+    [Route("CAT")]
 
         public IActionResult ProcesarCATDatos([FromBody] XDocument xmlDocument)
         {
@@ -90,7 +91,7 @@ public IActionResult ProcesarDatos([FromBody] string[] lines)
                     Console.WriteLine("Inicio de extraccion 1");
                     /*string jsonFilePath = "./resultadoXML.json";
                     string json = System.IO.File.ReadAllText(jsonFilePath);
-                    */
+                    
                     string xmlFilePath = Path.Combine(Directory.GetCurrentDirectory(), "IeIAPI", "IeIAPI", "CAT.xml");
 
 
@@ -208,7 +209,7 @@ public IActionResult ProcesarDatos([FromBody] string[] lines)
                 // Retornar un código de estado 500 con un mensaje de error genérico
                 return StatusCode(500, $"Internal Server Error: {ex.Message}");
             }
-        }
+       }*/
         private static void InsertIntoProvincia(MySqlConnection connection, dynamic data)
         {
             try
