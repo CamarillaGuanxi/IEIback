@@ -23,13 +23,13 @@ namespace IeIAPI
 
         public void ConfigureServices(IServiceCollection services)
         {
-           /* services.AddCors(options =>
+           services.AddCors(options =>
             {
                 options.AddPolicy("AllowRender",
                     builder => builder.AllowAnyOrigin()
                                       .AllowAnyMethod()
                                       .AllowAnyHeader());
-            });*/
+            });
 
             services.AddControllers();
         }
