@@ -23,7 +23,7 @@ namespace IeIAPI
 
         [HttpPost]
         [Route("CSV")]
-       public IActionResult ProcesarDatos([FromBody] List<string> lines)
+       public IActionResult ProcesarDatos([FromBody] string [] lines)
     {
     try
     {
