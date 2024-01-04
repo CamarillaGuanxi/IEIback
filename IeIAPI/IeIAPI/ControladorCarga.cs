@@ -21,10 +21,10 @@ namespace IeIAPI
         private static string password = "HA2A2baGAEH2B1f-4A42b1g6c2EbGaB4";
         private static string connectionString = $"Server={host};Port={port};Database={database};User Id={user};Password={password};CharSet=utf8mb4;";
        
-        [HttpGet]
+        [HttpPost]
         [Route("CSV")]
 
-        public IActionResult ProcesarDatos()
+        public IActionResult ProcesarDatos([FromBody] string[] lines)
              {
             try
             {
@@ -42,12 +42,10 @@ namespace IeIAPI
                     Console.WriteLine("Inicio de extraccion 1");
                    // string jsonFilePath = "./resultado.json";
                     //string json = System.IO.File.ReadAllText(jsonFilePath);
-                    
-                    string filePath = "./CV.csv";
-
+                                     
 
                     // Leer el archivo CSV
-                    string[] lines = System.IO.File.ReadAllLines(filePath);
+     
                     Console.WriteLine("data" + lines);
                     string json = Extractor1CSV.Extractor1(numeros, lines);
                     Console.WriteLine("data" + json);
@@ -93,32 +91,9 @@ namespace IeIAPI
             }
         }
 
-        [HttpGet]
-        [Route("TEST")]
-        public IActionResult ProcesarTest() {
-
-            string rutaDirectorio = "../";
-
-            // Verificar si la ruta del directorio existe
-            if (Directory.Exists(rutaDirectorio))
-            {
-                // Obtener todos los archivos en la ruta del directorio
-                string[] archivos = Directory.GetFiles(rutaDirectorio);
-
-                // Mostrar los nombres de los archivos por pantalla
-                foreach (string archivo in archivos)
-                {
-                    Console.WriteLine(archivo);
-                }
-            }
-            else
-            {
-                Console.WriteLine("La ruta del directorio no existe.");
-            }
-            return Ok(new { Mensaje = "Datos procesados desde la ruta 'api/carga/CSV'" });
-        }
+       
     
-        public IActionResult ProcesarCATDatos()
+        public IActionResult ProcesarCATDatos([FromBody] XDocument xmlDocument)
         {
             try
             {
@@ -186,10 +161,10 @@ namespace IeIAPI
             }
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("MUR")]
 
-        public IActionResult ProcesarMURDatos()
+        public IActionResult ProcesarMURDatos(string jsonData)
         {
             try
             {
@@ -210,9 +185,8 @@ namespace IeIAPI
                     */
                     string xmlFilePath = Path.Combine(Directory.GetCurrentDirectory(), "IeIAPI", "IeIAPI", "CAT.xml");
 
-                    string jsonFilePath = "./MUR.json";
-                    // Leer el archivo CSV
-                    string jsonData = System.IO.File.ReadAllText(jsonFilePath);
+                   
+                   
                     string json = Extractor3JSON.ExtractorJSON(numeros, jsonData);
                     Console.WriteLine("data" + json);
                     try
