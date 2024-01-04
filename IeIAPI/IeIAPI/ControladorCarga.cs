@@ -18,11 +18,7 @@ namespace IeIAPI
         private static string user = "root";
         private static string password = "HA2A2baGAEH2B1f-4A42b1g6c2EbGaB4";
         private static string connectionString = $"Server={host};Port={port};Database={database};User Id={user};Password={password};CharSet=utf8mb4;";
-        private MySqlConnection connection = new MySqlConnection(connectionString);
-        public ControladorCarga()
-        {
-            connection = new MySqlConnection(connectionString);
-        }
+       
         [HttpGet]
         [Route("CSV")]
 
@@ -30,46 +26,48 @@ namespace IeIAPI
              {
             try
             {
-             
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
                     connection.Open();
-                
-                
-                   
+
+
+
                     int[] numeros = new int[4];
                     numeros[0] = 0; // COdigo localidad
                     numeros[1] = 0; // Buenardos
                     numeros[2] = 0; // Corregidos
                     Console.WriteLine("\n-------------------------------");
                     Console.WriteLine("Inicio de extraccion 1");
-                   String json = Extractor1CSV.Extractor1(numeros, connection);
-                try
-                {
-                    List<string> c_e = new List<string>();
-                    List<int> pr = new List<int>();
-                    List<int> loc = new List<int>();
-                    dynamic[] dataArray = JsonConvert.DeserializeObject<dynamic[]>(json);
-
-                    Console.WriteLine("Connection successful!");
-                    foreach (dynamic data in dataArray)
+                    String json = Extractor1CSV.Extractor1(numeros, connection);
+                    try
                     {
+                        List<string> c_e = new List<string>();
+                        List<int> pr = new List<int>();
+                        List<int> loc = new List<int>();
+                        dynamic[] dataArray = JsonConvert.DeserializeObject<dynamic[]>(json);
+
+                        Console.WriteLine("Connection successful!");
+                        foreach (dynamic data in dataArray)
+                        {
 
 
-                        InsertIntoProvincia(connection, data);
+                            InsertIntoProvincia(connection, data);
 
-                        InsertIntoLocalidad(connection, data);
+                            InsertIntoLocalidad(connection, data);
 
-                        InsertIntoCentroEducativo(connection, data);
+                            InsertIntoCentroEducativo(connection, data);
 
 
 
+                        }
                     }
-                }
-                catch (SqlException ex)
-                {
-                    //Console.WriteLine("Error: " + ex.Message);
-                }
+                    catch (SqlException ex)
+                    {
+                        //Console.WriteLine("Error: " + ex.Message);
+                    }
 
-                return Ok(new { Mensaje = "Datos procesados desde la ruta 'api/carga/CSV'" });
+                    return Ok(new { Mensaje = "Datos procesados desde la ruta 'api/carga/CSV'" });
+                }
             }
             catch (Exception ex)
             {
