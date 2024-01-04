@@ -19,16 +19,20 @@ namespace IeIAPI
         private static string password = "HA2A2baGAEH2B1f-4A42b1g6c2EbGaB4";
         private static string connectionString = $"Server={host};Port={port};Database={database};User Id={user};Password={password};CharSet=utf8mb4;";
         private MySqlConnection connection = new MySqlConnection(connectionString);
+        public ControladorCarga()
+        {
+            connection = new MySqlConnection(connectionString);
+        }
         [HttpGet]
         [Route("CSV")]
-            public IActionResult ProcesarDatos()
+
+        public IActionResult ProcesarDatos()
              {
             try
             {
-                if (connection.State != ConnectionState.Open)
-                {
+             
                     connection.Open();
-                }
+                
                 
                    
                     int[] numeros = new int[4];
