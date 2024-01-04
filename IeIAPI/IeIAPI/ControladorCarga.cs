@@ -41,7 +41,7 @@ namespace IeIAPI
                     /*string jsonFilePath = "./resultadoXML.json";
                     string json = System.IO.File.ReadAllText(jsonFilePath);
                     */
-                    string json = Extractor1CSV.Extractor1(numeros);
+                    string json = Extractor2XML.Extractor2(numeros);
                     Console.WriteLine("data" + json);
                     try
                     {

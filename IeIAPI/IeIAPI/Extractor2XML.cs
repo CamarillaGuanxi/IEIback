@@ -67,8 +67,8 @@ namespace IeIAPI
             try
             {
                 // Rutas predefinidas
-                string xmlFilePath = @"C:\Users\Administrador.WIN-2O4P6U7CI32\source\repos\IEI\IEI\IEI\CAT.xml";
-                string resultsFolderPath = @"C:\Users\Administrador.WIN-2O4P6U7CI32\source\repos\IEI\IEI\IEI";
+                string xmlFilePath = "./CAT.xml";
+                string resultsFolderPath ="./";
                 Console.WriteLine(resultsFolderPath);
                 Boolean error = false;
                 Boolean corregido = false;
@@ -236,7 +236,7 @@ namespace IeIAPI
 
                 string json = JsonConvert.SerializeObject(dataList, Newtonsoft.Json.Formatting.Indented);
                 // Escribir JSON a un archivo
-                File.WriteAllText(jsonFilePath, json);
+               // File.WriteAllText(jsonFilePath, json);
 
                 Console.WriteLine("Archivo JSON generado exitosamente. (XML)");
 
@@ -247,7 +247,7 @@ namespace IeIAPI
             catch (Exception e)
             {
                 //Console.WriteLine("Error: " + e.Message);
-                return "";
+                return "erroe";
             }
         }
 
