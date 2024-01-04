@@ -23,7 +23,11 @@ namespace IeIAPI
 
         public void ConfigureServices(IServiceCollection services)
         {
-           services.AddCors(options =>
+            services.Configure<IISServerOptions>(options =>
+            {
+                options.AllowSynchronousIO = true;
+            });
+            services.AddCors(options =>
             {
                 options.AddPolicy("AllowRender",
                     builder => builder.AllowAnyOrigin()

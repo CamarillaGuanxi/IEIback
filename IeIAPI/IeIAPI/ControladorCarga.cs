@@ -48,9 +48,52 @@ namespace IeIAPI
                 Console.WriteLine("Conexión exitosa!");
                 foreach (dynamic data in dataArray)
                 {
+<<<<<<< HEAD
                     InsertIntoProvincia(connection, data);
                     InsertIntoLocalidad(connection, data);
                     InsertIntoCentroEducativo(connection, data);
+=======
+                    // Leer el contenido CSV desde la solicitud
+                    string csvContent = await reader.ReadToEndAsync();
+
+                    // Dividir las líneas del CSV
+                    string[] lines = csvContent.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        connection.Open();
+
+                        int[] numeros = new int[4];
+                        numeros[0] = 0; // Código localidad
+                        numeros[1] = 0; // Buenos
+                        numeros[2] = 0; // Corregidos
+
+                        // Procesar líneas CSV
+                        string json = Extractor1CSV.Extractor1(numeros, lines);
+
+                        try
+                        {
+                            List<string> c_e = new List<string>();
+                            List<int> pr = new List<int>();
+                            List<int> loc = new List<int>();
+                            dynamic[] dataArray = JsonConvert.DeserializeObject<dynamic[]>(json);
+
+                            Console.WriteLine("Conexión exitosa!");
+                            foreach (dynamic data in dataArray)
+                            {
+                                InsertIntoProvincia(connection, data);
+                                InsertIntoLocalidad(connection, data);
+                                InsertIntoCentroEducativo(connection, data);
+                            }
+                        }
+                        catch (SqlException ex)
+                        {
+                            // Manejar la excepción de SQL
+                        }
+
+                        return Ok(new { Mensaje = "Datos procesados desde la ruta 'api/carga/CSV'" });
+                    }
+>>>>>>> d1761c0bb9f7931a6cbd7870267c1175d8ceed64
                 }
             }
             catch (SqlException ex)
@@ -160,7 +203,7 @@ namespace IeIAPI
                     Console.WriteLine("\n-------------------------------");
                     Console.WriteLine("Inicio de extraccion 1");
                     string jsonFilePath = "./MUR.json";
-                   // string json = System.IO.File.ReadAllText(jsonFilePath);
+                   string jsonData = System.IO.File.ReadAllText(jsonFilePath);
                     
                    
 
