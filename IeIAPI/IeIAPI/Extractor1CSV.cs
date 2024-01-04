@@ -45,7 +45,7 @@ namespace IeIAPI
             {
 
                 // Ruta al archivo CSV
-                string filePath = @"./CV.csv";
+                string filePath = "./CV.csv";
 
                 // Leer el archivo CSV
                 string[] lines = File.ReadAllLines(filePath);
