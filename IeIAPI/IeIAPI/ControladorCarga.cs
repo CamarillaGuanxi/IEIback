@@ -43,7 +43,7 @@ namespace IeIAPI
                    // string jsonFilePath = "./resultado.json";
                     //string json = System.IO.File.ReadAllText(jsonFilePath);
                     
-                    string filePath = "./CV.csv";
+                    string filePath = "./cv.csv";
 
 
                     // Leer el archivo CSV
