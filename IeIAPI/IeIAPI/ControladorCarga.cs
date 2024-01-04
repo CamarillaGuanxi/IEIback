@@ -23,43 +23,52 @@ namespace IeIAPI
 
         [HttpPost]
         [Route("CSV")]
-        public IActionResult ProcesarDatos([FromBody] string[] lines)
+        public IActionResult ProcesarDatos()
         {
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (StreamReader reader = new StreamReader(Request.Body))
                 {
-                    connection.Open();
+                    // Leer el contenido CSV desde la solicitud
+                    string csvContent = reader.ReadToEnd();
 
-                    int[] numeros = new int[4];
-                    numeros[0] = 0; // Código localidad
-                    numeros[1] = 0; // Buenos
-                    numeros[2] = 0; // Corregidos
+                    // Dividir las líneas del CSV
+                    string[] lines = csvContent.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
 
-                    // Process CSV lines
-                    string json = Extractor1CSV.Extractor1(numeros, lines);
-
-                    try
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
-                        List<string> c_e = new List<string>();
-                        List<int> pr = new List<int>();
-                        List<int> loc = new List<int>();
-                        dynamic[] dataArray = JsonConvert.DeserializeObject<dynamic[]>(json);
+                        connection.Open();
 
-                        Console.WriteLine("Connection successful!");
-                        foreach (dynamic data in dataArray)
+                        int[] numeros = new int[4];
+                        numeros[0] = 0; // Código localidad
+                        numeros[1] = 0; // Buenos
+                        numeros[2] = 0; // Corregidos
+
+                        // Procesar líneas CSV
+                        string json = Extractor1CSV.Extractor1(numeros, lines);
+
+                        try
                         {
-                            InsertIntoProvincia(connection, data);
-                            InsertIntoLocalidad(connection, data);
-                            InsertIntoCentroEducativo(connection, data);
-                        }
-                    }
-                    catch (SqlException ex)
-                    {
-                        // Handle SQL exception
-                    }
+                            List<string> c_e = new List<string>();
+                            List<int> pr = new List<int>();
+                            List<int> loc = new List<int>();
+                            dynamic[] dataArray = JsonConvert.DeserializeObject<dynamic[]>(json);
 
-                    return Ok(new { Mensaje = "Datos procesados desde la ruta 'api/YourController/CSV'" });
+                            Console.WriteLine("Conexión exitosa!");
+                            foreach (dynamic data in dataArray)
+                            {
+                                InsertIntoProvincia(connection, data);
+                                InsertIntoLocalidad(connection, data);
+                                InsertIntoCentroEducativo(connection, data);
+                            }
+                        }
+                        catch (SqlException ex)
+                        {
+                            // Manejar la excepción de SQL
+                        }
+
+                        return Ok(new { Mensaje = "Datos procesados desde la ruta 'api/carga/CSV'" });
+                    }
                 }
             }
             catch (Exception ex)
@@ -68,13 +77,12 @@ namespace IeIAPI
                 return StatusCode(500, $"Internal Server Error: {ex.Message}");
             }
         }
-
         // Define your database insertion methods (InsertIntoProvincia, InsertIntoLocalidad, InsertIntoCentroEducativo) here
-    
 
 
 
-    public IActionResult ProcesarCATDatos([FromBody] XDocument xmlDocument)
+
+        public IActionResult ProcesarCATDatos([FromBody] XDocument xmlDocument)
         {
             try
             {
