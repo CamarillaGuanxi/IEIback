@@ -38,7 +38,7 @@ namespace IeIAPI
 
             return stringBuilder.ToString();
         }
-        public static int[] Extractor1(int[] contador, MySqlConnection connection)
+        public static string Extractor1(int[] contador, MySqlConnection connection)
         {
 
             try
@@ -165,9 +165,10 @@ namespace IeIAPI
                         {
                             cen.Add(new Centro_Educativo(nombre, codPostal));
 
-                           
+
                         }
-                        else {
+                        else
+                        {
                             error = true;
                             Console.WriteLine("Error encontrado en el elemento " + nombre + " de los datos CSV por centro repetido");
 
@@ -223,21 +224,21 @@ namespace IeIAPI
                     }
 
                     string json = JsonConvert.SerializeObject(dataList, Newtonsoft.Json.Formatting.Indented);
-                    Railway.InsertCentro(json, connection);
+                   
                     // Escribir JSON a un archivo
                     File.WriteAllText(@"C:\Users\Administrador.WIN-2O4P6U7CI32\source\repos\IEI\IEI\IEI\resultado.json", json);
 
                     Console.WriteLine("Archivo JSON generado exitosamente. (CSV)");
-                    return contador;
+                    return json;
 
                 }
             }
             catch (Exception e)
             {
                 //Console.WriteLine(e.Message);
-                return contador;
-            }
+                return "";
 
+            }
         }
     }
 }
