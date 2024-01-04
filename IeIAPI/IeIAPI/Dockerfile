@@ -10,6 +10,10 @@ RUN dotnet restore
 COPY . .
 RUN dotnet build -c Release -o /app/build
 
+# Agregar líneas para copiar archivos CSV y XML
+COPY ./CV.csv /app
+COPY ./CAT.xml /app
+
 # Fase de publicación
 FROM build AS publish
 RUN dotnet publish -c Release -o /app/publish /p:UseAppHost=false
@@ -20,7 +24,6 @@ WORKDIR /app
 
 # Copiar los archivos publicados desde la fase de publicación
 COPY --from=publish /app/publish .
-COPY ./CV.csv /app/CV.csv
 
 # Definir el punto de entrada para la aplicación
 EXPOSE 5000
