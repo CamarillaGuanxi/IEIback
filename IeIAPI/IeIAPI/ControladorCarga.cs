@@ -38,7 +38,8 @@ namespace IeIAPI
                     numeros[2] = 0; // Corregidos
                     Console.WriteLine("\n-------------------------------");
                     Console.WriteLine("Inicio de extraccion 1");
-                    String json = Extractor2XML.Extractor2(numeros);
+                    string jsonFilePath = @"C:\Users\Administrador.WIN-2O4P6U7CI32\source\repos\IeiBACK\IeIAPI\IeIAPI\resultadoXML.json";
+                    String json = File.ReadAllText(jsonFilePath);
                     Console.WriteLine("data" + json);
                     try
                     {

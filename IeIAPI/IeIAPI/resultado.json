@@ -1,0 +1,222 @@
+[
+  {
+    "C_E": {
+      "nombre": "CEIP EL ROMERAL",
+      "tipo": "Otros",
+      "direccion": "ALCOI CARRER MESTRE RIBERA MONTES 10",
+      "codigo_postal": "03802",
+      "telefono": "966527820",
+      "longitud": "-0.48771",
+      "latitud": "38.69651",
+      "descripcion": ""
+    },
+    "LOC": {
+      "codigo": 1,
+      "nombre": "ALCOI"
+    },
+    "PR": {
+      "codigo": 380,
+      "nombre": "ALICANTE/ALACANT"
+    }
+  },
+  {
+    "C_E": {
+      "nombre": "CENTRE PRIVAT MARIA ASUNTA",
+      "tipo": "Concertado",
+      "direccion": "CASTALLA CARRER COLON 1",
+      "codigo_postal": "03420",
+      "telefono": "965560084",
+      "longitud": "-0.67010",
+      "latitud": "38.59471",
+      "descripcion": ""
+    },
+    "LOC": {
+      "codigo": 2,
+      "nombre": "CASTALLA"
+    },
+    "PR": {
+      "codigo": 380,
+      "nombre": "ALICANTE/ALACANT"
+    }
+  },
+  {
+    "C_E": {
+      "nombre": "CEIP VIRGEN DEL PILAR",
+      "tipo": "Otros",
+      "direccion": "PILAR DE LA HORADADA CARRER GABRIEL MIRO 5",
+      "codigo_postal": "03190",
+      "telefono": "966904255",
+      "longitud": "-0.67010",
+      "latitud": "38.59471",
+      "descripcion": ""
+    },
+    "LOC": {
+      "codigo": 3,
+      "nombre": "PILAR DE LA HORADADA"
+    },
+    "PR": {
+      "codigo": 380,
+      "nombre": "ALICANTE/ALACANT"
+    }
+  },
+  {
+    "C_E": {
+      "nombre": "D.TERRITORIAL DE EDUCACION, FORMACION Y TRABAJO - ALICANTE",
+      "tipo": "Otros",
+      "direccion": "ALACANT CARRER CARRATALA 47",
+      "codigo_postal": "03007",
+      "telefono": "",
+      "longitud": "-0.50081",
+      "latitud": "38.34244",
+      "descripcion": ""
+    },
+    "LOC": {
+      "codigo": 4,
+      "nombre": "ALACANT"
+    },
+    "PR": {
+      "codigo": 380,
+      "nombre": "ALICANTE/ALACANT"
+    }
+  },
+  {
+    "C_E": {
+      "nombre": "E. DE MUSICA COMARCAL DEL ALTO PALANCIA",
+      "tipo": "Otros",
+      "direccion": "SONEJA CARRER ALTO PALANCIA 4",
+      "codigo_postal": "12480",
+      "telefono": "964132740",
+      "longitud": "-0.50081",
+      "latitud": "38.34244",
+      "descripcion": ""
+    },
+    "LOC": {
+      "codigo": 5,
+      "nombre": "SONEJA"
+    },
+    "PR": {
+      "codigo": 124,
+      "nombre": "CASTELLON/CASTELLO"
+    }
+  },
+  {
+    "C_E": {
+      "nombre": "CENTRE PRIV. ED. INF. 1ER CICLE LA JIRAFA",
+      "tipo": "Privado",
+      "direccion": "CASTELLO DE LA PLANA CARRER MUSEROS 16",
+      "codigo_postal": "12005",
+      "telefono": "964236262",
+      "longitud": "-0.03411",
+      "latitud": "39.97921",
+      "descripcion": ""
+    },
+    "LOC": {
+      "codigo": 6,
+      "nombre": "CASTELLO DE LA PLANA"
+    },
+    "PR": {
+      "codigo": 124,
+      "nombre": "CASTELLON/CASTELLO"
+    }
+  },
+  {
+    "C_E": {
+      "nombre": "ALICER",
+      "tipo": "Otros",
+      "direccion": "CASTELLO DE LA PLANA AVINGUDA DEL MAR S/N",
+      "codigo_postal": "12003",
+      "telefono": "",
+      "longitud": "-0.03411",
+      "latitud": "39.97921",
+      "descripcion": ""
+    },
+    "LOC": {
+      "codigo": 6,
+      "nombre": "CASTELLO DE LA PLANA"
+    },
+    "PR": {
+      "codigo": 124,
+      "nombre": "CASTELLON/CASTELLO"
+    }
+  },
+  {
+    "C_E": {
+      "nombre": "CEIP AUSIAS MARCH",
+      "tipo": "Otros",
+      "direccion": "ALZIRA AVINGUDA MESTRA JOSEFINA FERNANDEZ 54",
+      "codigo_postal": "46600",
+      "telefono": "962457520",
+      "longitud": "-0.42589",
+      "latitud": "39.15022",
+      "descripcion": ""
+    },
+    "LOC": {
+      "codigo": 7,
+      "nombre": "ALZIRA"
+    },
+    "PR": {
+      "codigo": 466,
+      "nombre": "VALENCIA/VALENCIA"
+    }
+  },
+  {
+    "C_E": {
+      "nombre": "CENTRE PRIVAT LA MILAGROSA",
+      "tipo": "Concertado",
+      "direccion": "CULLERA CARRER CERVANTES 18",
+      "codigo_postal": "46400",
+      "telefono": "961720231",
+      "longitud": "-0.25743",
+      "latitud": "39.16404",
+      "descripcion": ""
+    },
+    "LOC": {
+      "codigo": 8,
+      "nombre": "CULLERA"
+    },
+    "PR": {
+      "codigo": 466,
+      "nombre": "VALENCIA/VALENCIA"
+    }
+  },
+  {
+    "C_E": {
+      "nombre": "CENTRE ENS. ARTIST. PROFESSIONALS  BARREIRA ARTE Y DISENO",
+      "tipo": "Privado",
+      "direccion": "VALENCIA CARRER SAN JACINTO 1",
+      "codigo_postal": "46008",
+      "telefono": "961130354",
+      "longitud": "-0.38950",
+      "latitud": "39.47550",
+      "descripcion": ""
+    },
+    "LOC": {
+      "codigo": 9,
+      "nombre": "VALENCIA"
+    },
+    "PR": {
+      "codigo": 466,
+      "nombre": "VALENCIA/VALENCIA"
+    }
+  },
+  {
+    "C_E": {
+      "nombre": "CEP CENTRO DE RECEPCION",
+      "tipo": "Otros",
+      "direccion": "ALACANT CARRER PRIMITIVO PEREZ 21",
+      "codigo_postal": "03010",
+      "telefono": "965937330",
+      "longitud": "-0.48669",
+      "latitud": "38.35762",
+      "descripcion": ""
+    },
+    "LOC": {
+      "codigo": 4,
+      "nombre": "ALACANT"
+    },
+    "PR": {
+      "codigo": 380,
+      "nombre": "ALICANTE/ALACANT"
+    }
+  }
+]
