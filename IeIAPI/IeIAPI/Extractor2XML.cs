@@ -61,7 +61,7 @@ namespace IeIAPI
 
             return "Comarca no encontrada";
     }
-    public static string Extractor2(int[] contador,string help )
+    public static string Extractor2(int[] contador,XDocument doc )
         {
 
             try
