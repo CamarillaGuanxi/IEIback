@@ -1,0 +1,242 @@
+[
+  {
+    "C_E": {
+      "nombre": "Institut Ribot i Serra",
+      "tipo": "Otros",
+      "direccion": "c. Concha Espina, 33",
+      "codigo_postal": "08204",
+      "telefono": "",
+      "longitud": "2.111925734",
+      "latitud": "41.526035077",
+      "descripcion": ""
+    },
+    "LOC": {
+      "codigo": 2,
+      "nombre": "Sabadell"
+    },
+    "PR": {
+      "codigo": 89,
+      "nombre": "Barcelona"
+    }
+  },
+  {
+    "C_E": {
+      "nombre": "Escola Victor Catala",
+      "tipo": "Otros",
+      "direccion": "c. Font d'en Canyelles, 35",
+      "codigo_postal": "08016",
+      "telefono": "",
+      "longitud": "2.12116579",
+      "latitud": "41.39652721",
+      "descripcion": ""
+    },
+    "LOC": {
+      "codigo": 3,
+      "nombre": "Barcelona"
+    },
+    "PR": {
+      "codigo": 89,
+      "nombre": "Barcelona"
+    }
+  },
+  {
+    "C_E": {
+      "nombre": "Institut Serra de Miramar",
+      "tipo": "Otros",
+      "direccion": "pl. del Quarter, s/n",
+      "codigo_postal": "43800",
+      "telefono": "",
+      "longitud": "1.25231703",
+      "latitud": "41.286633854",
+      "descripcion": ""
+    },
+    "LOC": {
+      "codigo": 4,
+      "nombre": "Valls"
+    },
+    "PR": {
+      "codigo": 438,
+      "nombre": "Tarragona"
+    }
+  },
+  {
+    "C_E": {
+      "nombre": "Petit Planco",
+      "tipo": "Privado",
+      "direccion": "c. Joaquim Vayreda, 23",
+      "codigo_postal": "17800",
+      "telefono": "",
+      "longitud": "2.488992693",
+      "latitud": "42.178971465",
+      "descripcion": ""
+    },
+    "LOC": {
+      "codigo": 5,
+      "nombre": "Olot"
+    },
+    "PR": {
+      "codigo": 178,
+      "nombre": "Girona"
+    }
+  },
+  {
+    "C_E": {
+      "nombre": "Escola Els Angels",
+      "tipo": "Otros",
+      "direccion": "c. Menorca, 24",
+      "codigo_postal": "43006",
+      "telefono": "",
+      "longitud": "1.212182025",
+      "latitud": "41.121689261",
+      "descripcion": ""
+    },
+    "LOC": {
+      "codigo": 6,
+      "nombre": "Tarragona"
+    },
+    "PR": {
+      "codigo": 438,
+      "nombre": "Tarragona"
+    }
+  },
+  {
+    "C_E": {
+      "nombre": "Escola Parc de les Aigues",
+      "tipo": "Otros",
+      "direccion": "c. Sant Pere de Rodes, 2",
+      "codigo_postal": "17600",
+      "telefono": "",
+      "longitud": "2.962161339",
+      "latitud": "42.271448238",
+      "descripcion": ""
+    },
+    "LOC": {
+      "codigo": 7,
+      "nombre": "Figueres"
+    },
+    "PR": {
+      "codigo": 178,
+      "nombre": "Girona"
+    }
+  },
+  {
+    "C_E": {
+      "nombre": "Institut Joan Brudieu",
+      "tipo": "Otros",
+      "direccion": "c. Dr. Iglesias Navarri, 27",
+      "codigo_postal": "25700",
+      "telefono": "",
+      "longitud": "1.457709157",
+      "latitud": "42.353365177",
+      "descripcion": ""
+    },
+    "LOC": {
+      "codigo": 8,
+      "nombre": "La Seu d'Urgell"
+    },
+    "PR": {
+      "codigo": 257,
+      "nombre": "Lleida"
+    }
+  },
+  {
+    "C_E": {
+      "nombre": "Llar d'infants Municipal d'Alfarras Les Llavoretes",
+      "tipo": "Otros",
+      "direccion": "c. Sisquella, 4",
+      "codigo_postal": "25120",
+      "telefono": "",
+      "longitud": "0.57464247",
+      "latitud": "41.830363974",
+      "descripcion": ""
+    },
+    "LOC": {
+      "codigo": 9,
+      "nombre": "Alfarras"
+    },
+    "PR": {
+      "codigo": 257,
+      "nombre": "Lleida"
+    }
+  },
+  {
+    "C_E": {
+      "nombre": "Escola Bellavista-Joan Camps i Giro",
+      "tipo": "Otros",
+      "direccion": "c. Asturies, s/n",
+      "codigo_postal": "08520",
+      "telefono": "",
+      "longitud": "2.300249335",
+      "latitud": "41.621104264",
+      "descripcion": ""
+    },
+    "LOC": {
+      "codigo": 10,
+      "nombre": "Les Franqueses del Valles"
+    },
+    "PR": {
+      "codigo": 89,
+      "nombre": "Barcelona"
+    }
+  },
+  {
+    "C_E": {
+      "nombre": "Sant Antoni de Padua",
+      "tipo": "Privado",
+      "direccion": "av. Puig i Cadafalch, 80",
+      "codigo_postal": "08303",
+      "telefono": "",
+      "longitud": "2.429735901",
+      "latitud": "41.540297266",
+      "descripcion": ""
+    },
+    "LOC": {
+      "codigo": 11,
+      "nombre": "Mataro"
+    },
+    "PR": {
+      "codigo": 89,
+      "nombre": "Barcelona"
+    }
+  },
+  {
+    "C_E": {
+      "nombre": "Escola Les Planes",
+      "tipo": "Otros",
+      "direccion": "c. Constitucio, 2",
+      "codigo_postal": "08120",
+      "telefono": "",
+      "longitud": "2.194556796",
+      "latitud": "41.510567853",
+      "descripcion": ""
+    },
+    "LOC": {
+      "codigo": 12,
+      "nombre": "La Llagosta"
+    },
+    "PR": {
+      "codigo": 89,
+      "nombre": "Barcelona"
+    }
+  },
+  {
+    "C_E": {
+      "nombre": "Institut Santiago Sobreques i Vidal",
+      "tipo": "Otros",
+      "direccion": "c. Joan Regla, 2-4",
+      "codigo_postal": "17003",
+      "telefono": "",
+      "longitud": "2.820304038",
+      "latitud": "41.971550517",
+      "descripcion": ""
+    },
+    "LOC": {
+      "codigo": 13,
+      "nombre": "Girona"
+    },
+    "PR": {
+      "codigo": 178,
+      "nombre": "Girona"
+    }
+  }
+]
