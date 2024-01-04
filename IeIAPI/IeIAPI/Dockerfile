@@ -20,6 +20,7 @@ WORKDIR /app
 
 # Copiar los archivos publicados desde la fase de publicación
 COPY --from=publish /app/publish .
+COPY ./CV.csv /app/CV.csv
 
 # Definir el punto de entrada para la aplicación
 EXPOSE 5000
