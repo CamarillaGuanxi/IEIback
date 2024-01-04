@@ -61,7 +61,7 @@ namespace IeIAPI
 
             return "Comarca no encontrada";
     }
-    public static int[] Extractor2(int[] contador, MySqlConnection connection)
+    public static string Extractor2(int[] contador)
         {
 
             try
@@ -235,20 +235,19 @@ namespace IeIAPI
                 string jsonFilePath = Path.Combine(resultsFolderPath, "resultadoXML.json");
 
                 string json = JsonConvert.SerializeObject(dataList, Newtonsoft.Json.Formatting.Indented);
-                Railway.InsertCentro(json, connection);
                 // Escribir JSON a un archivo
                 File.WriteAllText(jsonFilePath, json);
 
                 Console.WriteLine("Archivo JSON generado exitosamente. (XML)");
 
                 // Devolver el código municipal actualizado
-                return contador;
+                return json;
             }
 
             catch (Exception e)
             {
                 //Console.WriteLine("Error: " + e.Message);
-                return contador;
+                return "";
             }
         }
 
