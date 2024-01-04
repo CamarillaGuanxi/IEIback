@@ -69,12 +69,20 @@ public IActionResult ProcesarDatos([FromBody] string lines)
     }
 }
 
-   [HttpPost]
+  [HttpPost]
 [Route("CAT")]
-public IActionResult ProcesarCATDatos([FromBody] XDocument xdoc)
+public IActionResult ProcesarCATDatos([FromForm] IFormFile file)
 {
     try
     {
+        if (file != null && file.Length > 0)
+        {
+            // Leer el archivo XML
+            using (StreamReader reader = new StreamReader(file.OpenReadStream()))
+            {
+                string xmlContent = reader.ReadToEnd();
+                XDocument xdoc = XDocument.Parse(xmlContent);
+            }
         using (MySqlConnection connection = new MySqlConnection(connectionString))
         {
             connection.Open();
