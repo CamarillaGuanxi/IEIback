@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrador.WIN-2O4P6U7CI32\\source\\repos\\IeiBACK\\IeIAPI\\IeIAPI\\IeIAPI.csproj": {}
+    "W:\\IEI\\IEIback\\IeIAPI\\IeIAPI\\IeIAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrador.WIN-2O4P6U7CI32\\source\\repos\\IeiBACK\\IeIAPI\\IeIAPI\\IeIAPI.csproj": {
+    "W:\\IEI\\IEIback\\IeIAPI\\IeIAPI\\IeIAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrador.WIN-2O4P6U7CI32\\source\\repos\\IeiBACK\\IeIAPI\\IeIAPI\\IeIAPI.csproj",
+        "projectUniqueName": "W:\\IEI\\IEIback\\IeIAPI\\IeIAPI\\IeIAPI.csproj",
         "projectName": "IeIAPI",
-        "projectPath": "C:\\Users\\Administrador.WIN-2O4P6U7CI32\\source\\repos\\IeiBACK\\IeIAPI\\IeIAPI\\IeIAPI.csproj",
-        "packagesPath": "C:\\Users\\Administrador.WIN-2O4P6U7CI32\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrador.WIN-2O4P6U7CI32\\source\\repos\\IeiBACK\\IeIAPI\\IeIAPI\\obj\\",
+        "projectPath": "W:\\IEI\\IEIback\\IeIAPI\\IeIAPI\\IeIAPI.csproj",
+        "packagesPath": "C:\\Users\\VDOMRAB\\.nuget\\packages\\",
+        "outputPath": "W:\\IEI\\IEIback\\IeIAPI\\IeIAPI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Administrador.WIN-2O4P6U7CI32\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\VDOMRAB\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -75,8 +79,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -88,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

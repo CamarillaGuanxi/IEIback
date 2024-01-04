@@ -25,7 +25,7 @@ namespace IeIAPI
     {
         public static string RemoveAccents(string input)
         {
-            string normalized = input.Normalize(NormalizationForm.FormD, string [] lines);
+            string normalized = input.Normalize(NormalizationForm.FormD);
             StringBuilder stringBuilder = new StringBuilder();
 
             foreach (char c in normalized)
@@ -38,7 +38,7 @@ namespace IeIAPI
 
             return stringBuilder.ToString();
         }
-        public static string Extractor1(int[] contador)
+        public static string Extractor1(int[] contador, string[] lines)
         {
 
             try

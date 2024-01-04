@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using Newtonsoft.Json;
+using System.IO;
 namespace IeIAPI
 {
     [ApiController]
@@ -44,8 +45,8 @@ namespace IeIAPI
                       string filePath = "./CV.csv";
 
                     // Leer el archivo CSV
-                     string[] lines = File.ReadAllLines(filePath);
-                    string json = Extractor2XML.Extractor2(numeros, lines);
+                     string[] lines = System.IO.File.ReadAllLines(filePath);
+                    string json = Extractor1CSV.Extractor1(numeros, lines);
                     Console.WriteLine("data" + json);
                     try
                     {
