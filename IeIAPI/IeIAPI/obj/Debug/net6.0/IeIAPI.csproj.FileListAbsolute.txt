@@ -140,3 +140,6 @@ W:\IEI\IEIback\IeIAPI\IeIAPI\obj\Debug\net6.0\refint\IeIAPI.dll
 W:\IEI\IEIback\IeIAPI\IeIAPI\obj\Debug\net6.0\IeIAPI.pdb
 W:\IEI\IEIback\IeIAPI\IeIAPI\obj\Debug\net6.0\IeIAPI.genruntimeconfig.cache
 W:\IEI\IEIback\IeIAPI\IeIAPI\obj\Debug\net6.0\ref\IeIAPI.dll
+C:\Users\Administrador.WIN-2O4P6U7CI32\source\repos\IeiBACK\IeIAPI\IeIAPI\bin\Debug\net6.0\MUR.json
+C:\Users\Administrador.WIN-2O4P6U7CI32\source\repos\IeiBACK\IeIAPI\IeIAPI\bin\Debug\net6.0\resultado.json
+C:\Users\Administrador.WIN-2O4P6U7CI32\source\repos\IeiBACK\IeIAPI\IeIAPI\bin\Debug\net6.0\resultadoXML.json

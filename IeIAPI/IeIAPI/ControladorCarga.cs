@@ -23,14 +23,14 @@ namespace IeIAPI
 
         [HttpGet]
         [Route("CSV")]
-        public IActionResult ProcesarDatos()
+        public async Task<IActionResult> ProcesarDatos()
         {
             try
             {
                 using (StreamReader reader = new StreamReader(Request.Body))
                 {
                     // Leer el contenido CSV desde la solicitud
-                    string csvContent = reader.ReadToEnd();
+                    string csvContent = await reader.ReadToEndAsync();
 
                     // Dividir las líneas del CSV
                     string[] lines = csvContent.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
