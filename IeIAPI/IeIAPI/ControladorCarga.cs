@@ -72,7 +72,7 @@ public IActionResult ProcesarDatos([FromBody] string lines)
     [HttpPost]
     [Route("CAT")]
 
-        public IActionResult ProcesarCATDatos([FromBody] XDocument xmlDocument)
+        public IActionResult ProcesarCATDatos([FromBody] XDocument doc)
         {
             try
             {
