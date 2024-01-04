@@ -16,10 +16,57 @@ namespace IeIAPI
         private static string password = "HA2A2baGAEH2B1f-4A42b1g6c2EbGaB4";
         private static string connectionString = $"Server={host};Port={port};Database={database};User Id={user};Password={password};CharSet=utf8mb4;";
 
-
         [HttpGet]
-        [Route("test")]
-        public IEnumerable<object> GetYourModels()
+        [Route("buscarCentros")]
+        public ActionResult<IEnumerable<object>> BuscarCentros(
+            string localidad = null,
+            string codigoPostal = null,
+            string provincia = null,
+            string tipo = null)
+        {
+            try
+            {
+                List<string> conditions = new List<string>();
+
+                if (!string.IsNullOrWhiteSpace(localidad))
+                {
+                    conditions.Add($"l.nombre LIKE '%{localidad}%'");
+                }
+
+                if (!string.IsNullOrWhiteSpace(codigoPostal))
+                {
+                    conditions.Add($"ce.codigo_postal = '{codigoPostal}'");
+                }
+
+                if (!string.IsNullOrWhiteSpace(provincia))
+                {
+                    conditions.Add($"p.nombre LIKE '%{provincia}%'");
+                }
+
+                if (!string.IsNullOrWhiteSpace(tipo))
+                {
+                    conditions.Add($"ce.tipo = '{tipo}'");
+                }
+
+                string query = "SELECT ce.* FROM Centro_Educativo ce " +
+                            "INNER JOIN Localidad l ON ce.en_localidad = l.codigo " +
+                            "INNER JOIN Provincia p ON l.en_provincia = p.codigo";
+
+                if (conditions.Count > 0)
+                {
+                    query += " WHERE " + string.Join(" AND ", conditions);
+                }
+
+                var centros = this.GetYourModels(query);
+                return Ok(centros);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal Server Error: {ex.Message}");
+            }
+        }
+
+        private IEnumerable<object> GetYourModels(string query)
         {
             List<object> result = new List<object>();
 
@@ -27,13 +74,12 @@ namespace IeIAPI
             {
                 connection.Open();
 
-                using (MySqlCommand command = new MySqlCommand("SELECT * FROM Localidad", connection))
+                using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            // Mapear los datos del lector a un objeto YourModel
                             var model = new
                             {
                                 Id = (int)reader["Codigo"],
@@ -49,20 +95,5 @@ namespace IeIAPI
 
             return result;
         }
-
-        [HttpGet]
-        public ActionResult<IEnumerable<object>> Get()
-        {
-            try
-            {
-                var yourModels = this.GetYourModels();
-                return Ok(yourModels);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Internal Server Error: {ex.Message}");
-            }
-        }
-
     }
 }
