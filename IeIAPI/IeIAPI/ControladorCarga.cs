@@ -38,7 +38,8 @@ namespace IeIAPI
                     numeros[2] = 0; // Corregidos
                     Console.WriteLine("\n-------------------------------");
                     Console.WriteLine("Inicio de extraccion 1");
-                    String json = Extractor1CSV.Extractor1(numeros, connection);
+                    String json = Extractor1CSV.Extractor1(numeros);
+                    Console.WriteLine(json);
                     try
                     {
                         List<string> c_e = new List<string>();

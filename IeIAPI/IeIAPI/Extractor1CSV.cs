@@ -38,7 +38,7 @@ namespace IeIAPI
 
             return stringBuilder.ToString();
         }
-        public static string Extractor1(int[] contador, MySqlConnection connection)
+        public static string Extractor1(int[] contador)
         {
 
             try
