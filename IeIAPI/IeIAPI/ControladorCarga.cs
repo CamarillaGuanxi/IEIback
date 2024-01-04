@@ -163,6 +163,77 @@ namespace IeIAPI
                 return StatusCode(500, $"Internal Server Error: {ex.Message}");
             }
         }
+
+        [HttpGet]
+        [Route("MUR")]
+
+        public IActionResult ProcesarMURDatos()
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+
+
+                    int[] numeros = new int[4];
+                    numeros[0] = 0; // COdigo localidad
+                    numeros[1] = 0; // Buenardos
+                    numeros[2] = 0; // Corregidos
+                    Console.WriteLine("\n-------------------------------");
+                    Console.WriteLine("Inicio de extraccion 1");
+                    /*string jsonFilePath = "./resultadoXML.json";
+                    string json = System.IO.File.ReadAllText(jsonFilePath);
+                    */
+                    string xmlFilePath = Path.Combine(Directory.GetCurrentDirectory(), "IeIAPI", "IeIAPI", "CAT.xml");
+
+                    string jsonFilePath = "./MUR.json";
+                    // Leer el archivo CSV
+                    string jsonData = System.IO.File.ReadAllText(jsonFilePath);
+                    string json = Extractor3JSON.ExtractorJSON(numeros, jsonData);
+                    Console.WriteLine("data" + json);
+                    try
+                    {
+                        List<string> c_e = new List<string>();
+                        List<int> pr = new List<int>();
+                        List<int> loc = new List<int>();
+                        dynamic[] dataArray = JsonConvert.DeserializeObject<dynamic[]>(json);
+
+                        Console.WriteLine("Connection successful!");
+                        foreach (dynamic data in dataArray)
+                        {
+
+
+                            InsertIntoProvincia(connection, data);
+
+                            InsertIntoLocalidad(connection, data);
+
+                            InsertIntoCentroEducativo(connection, data);
+
+
+
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        //Console.WriteLine("Error: " + ex.Message);
+                    }
+
+                    return Ok(new { Mensaje = "Datos procesados desde la ruta 'api/carga/CSV'" });
+                }
+            }
+            catch (Exception ex)
+            {
+                // Imprimir detalles de la excepción en la consola
+                Console.WriteLine($"Error en el método PostDatos: {ex.GetType().FullName}");
+                Console.WriteLine($"Mensaje de la excepción: {ex.Message}");
+                Console.WriteLine($"StackTrace: {ex.StackTrace}");
+
+                // Retornar un código de estado 500 con un mensaje de error genérico
+                return StatusCode(500, $"Internal Server Error: {ex.Message}");
+            }
+        }
         private static void InsertIntoProvincia(MySqlConnection connection, dynamic data)
         {
             try

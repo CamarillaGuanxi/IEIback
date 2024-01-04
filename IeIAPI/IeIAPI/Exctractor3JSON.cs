@@ -35,18 +35,18 @@ namespace IeIAPI
 
             return stringBuilder.ToString();
         }
-        public static int[] ExtractorJSON(int[] contador, MySqlConnection connection)
+        public static String ExtractorJSON(int[] contador, string jsonData)
         {
             try
             {
                 Boolean error = false;
                 Boolean corregido = false;
                 // Ruta al archivo JSON
-                string jsonFilePath = @"C:\Users\Administrador.WIN-2O4P6U7CI32\source\repos\IEI\IEI\IEI\MUR.json";
+               
                 List<Centro_Educativo> cen = new List<Centro_Educativo>();
                 List<Localidad> loc = new List<Localidad>();
                 // Leer el contenido del archivo JSON
-                string jsonData = File.ReadAllText(jsonFilePath);
+            
                 int i = 0;
                 // Deserializar el contenido del archivo JSON en una lista de objetos dinámicos
                 // Si tienes una clase que coincida con la estructura JSON, usa esa clase en lugar de 'dynamic'
@@ -185,19 +185,19 @@ namespace IeIAPI
 
                 // Convertir la lista transformada en JSON
                 string newJson = JsonConvert.SerializeObject(transformedDataList, Newtonsoft.Json.Formatting.Indented);
-                Railway.InsertCentro(newJson, connection);
+                
                 // Escribir el JSON transformado a un archivo
-                File.WriteAllText(@"C:\Users\Administrador.WIN-2O4P6U7CI32\source\repos\IEI\IEI\IEI\newfile.json", newJson);
+                //File.WriteAllText(@"C:\Users\Administrador.WIN-2O4P6U7CI32\source\repos\IEI\IEI\IEI\newfile.json", newJson);
 
                 Console.WriteLine("Archivo JSON transformado generado exitosamente. (JSON)");
 
 
-                return contador;
+                return newJson;
             }
             catch (Exception e)
             {
-                //Console.WriteLine(e.Message);
-                return contador;
+                Console.WriteLine(e.Message);
+                return "error";
             }
         }
     }
