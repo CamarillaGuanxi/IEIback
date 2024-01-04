@@ -150,7 +150,7 @@ namespace IeIAPI
             }
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("MUR")]
 
         public IActionResult ProcesarMURDatos(string jsonData)
