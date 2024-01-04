@@ -61,19 +61,19 @@ namespace IeIAPI
 
             return "Comarca no encontrada";
     }
-    public static string Extractor2(int[] contador)
+    public static string Extractor2(int[] contador, XDocument doc )
         {
 
             try
             {
                 // Rutas predefinidas
-                string xmlFilePath = "./CAT.xml";
+                
                 string resultsFolderPath ="./";
                 Console.WriteLine(resultsFolderPath);
                 Boolean error = false;
                 Boolean corregido = false;
                 // Completar la ruta completa del archivo XML
-                xmlFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, xmlFilePath);
+                //xmlFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, xmlFilePath);
                 List<Centro_Educativo> cen = new List<Centro_Educativo>();
                 // Comprobar si la carpeta de resultados existe, si no, crearla
                 if (!Directory.Exists(resultsFolderPath))
@@ -82,7 +82,7 @@ namespace IeIAPI
                 }
 
                 // Cargar el archivo XML
-                XDocument doc = XDocument.Load(xmlFilePath);
+                
                 int i = 0;
                 // Obtener todos los elementos 'row' del archivo XML
                 var rows = doc.Descendants("row");
