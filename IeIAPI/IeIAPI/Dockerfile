@@ -6,8 +6,7 @@ RUN dotnet restore
 
 COPY . .
 RUN dotnet build -c Release -o /app/build
-# Instala librerías necesarias
-RUN apt-get update && apt-get install -y libglib2.0-0
+
 # Use ADD to copy CSV and XML files
 COPY ./CV.csv .
 COPY ./CAT.xml .
