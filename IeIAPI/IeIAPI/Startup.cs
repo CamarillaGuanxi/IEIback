@@ -22,7 +22,7 @@ namespace IeIAPI
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
-        {
+        { 
             services.AddCors(options =>
             {
           

@@ -17,11 +17,11 @@ namespace IeIAPI
         private static string user = "root";
         private static string password = "HA2A2baGAEH2B1f-4A42b1g6c2EbGaB4";
         private static string connectionString = $"Server={host};Port={port};Database={database};User Id={user};Password={password};CharSet=utf8mb4;";
-
+        /*
         [HttpPost]
         [Route("CSV")]
-        public ActionResult<IEnumerable<object>> PostDatos()
-        {
+            public IActionResult ProcesarDatos()
+             {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -47,6 +47,21 @@ namespace IeIAPI
 
                 // Retornar un código de estado 500 con un mensaje de error genérico
                 return StatusCode(500, $"Internal Server Error: {ex.Message}");
+            }
+        }*/
+        [HttpPost]
+        [Route("a")]
+        public IActionResult TuAccion()
+        {
+            try
+            {
+                // Realiza las acciones necesarias sin depender de datos de entrada
+
+                return Ok(new { Mensaje = "Proceso completado correctamente" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error en el procesamiento: {ex.Message}");
             }
         }
     }
