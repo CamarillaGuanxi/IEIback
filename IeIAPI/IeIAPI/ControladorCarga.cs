@@ -40,15 +40,15 @@ namespace IeIAPI
                     numeros[2] = 0; // Corregidos
                     Console.WriteLine("\n-------------------------------");
                     Console.WriteLine("Inicio de extraccion 1");
-                    /*string jsonFilePath = "./resultadoXML.json";
+                    string jsonFilePath = "./resultado.json";
                     string json = System.IO.File.ReadAllText(jsonFilePath);
-                    */
-                      string filePath = Path.Combine(Directory.GetCurrentDirectory(), "IeIAPI", "IeIAPI", "CV.csv");
+                    
+                      //string filePath = Path.Combine(Directory.GetCurrentDirectory(), "IeIAPI", "IeIAPI", "CV.csv");
 
 
                     // Leer el archivo CSV
-                    string[] lines = System.IO.File.ReadAllLines(filePath);
-                    string json = Extractor1CSV.Extractor1(numeros, lines);
+                    //string[] lines = System.IO.File.ReadAllLines(filePath);
+                    //string json = Extractor1CSV.Extractor1(numeros, lines);
                     Console.WriteLine("data" + json);
                     try
                     {
