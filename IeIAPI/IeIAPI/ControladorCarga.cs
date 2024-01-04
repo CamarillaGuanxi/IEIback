@@ -24,7 +24,7 @@ namespace IeIAPI
 
   [HttpPost]
 [Route("CSV")]
-public IActionResult ProcesarDatos([FromBody] string[] lines)
+public IActionResult ProcesarDatos([FromBody] string lines)
 {
     try
     {
@@ -37,15 +37,14 @@ public IActionResult ProcesarDatos([FromBody] string[] lines)
             numeros[1] = 0; // Buenos
             numeros[2] = 0; // Corregidos
 
-            // Procesar líneas CSV
-            string json = Extractor1CSV.Extractor1(numeros, lines);
+
 
             try
             {
                 List<string> c_e = new List<string>();
                 List<int> pr = new List<int>();
                 List<int> loc = new List<int>();
-                dynamic[] dataArray = JsonConvert.DeserializeObject<dynamic[]>(json);
+                dynamic[] dataArray = JsonConvert.DeserializeObject<dynamic[]>(lines);
 
                 Console.WriteLine("Conexión exitosa!");
                 foreach (dynamic data in dataArray)
