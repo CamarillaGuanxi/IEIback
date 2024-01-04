@@ -68,7 +68,7 @@ public IActionResult ProcesarDatos([FromBody] string lines)
         return StatusCode(500, $"Internal Server Error: {ex.Message}");
     }
 }
-/*
+
     [HttpPost]
     [Route("CAT")]
 
@@ -88,14 +88,9 @@ public IActionResult ProcesarDatos([FromBody] string lines)
                     numeros[2] = 0; // Corregidos
                     Console.WriteLine("\n-------------------------------");
                     Console.WriteLine("Inicio de extraccion 1");
-                    /*string jsonFilePath = "./resultadoXML.json";
-                    string json = System.IO.File.ReadAllText(jsonFilePath);
+
                     
-                    string xmlFilePath = Path.Combine(Directory.GetCurrentDirectory(), "IeIAPI", "IeIAPI", "CAT.xml");
-
-
-                    // Leer el archivo CSV
-                    XDocument doc = XDocument.Load(xmlFilePath);
+                 
                     string json = Extractor2XML.Extractor2(numeros, doc);
                     Console.WriteLine("data" + json);
                     try
@@ -139,7 +134,7 @@ public IActionResult ProcesarDatos([FromBody] string lines)
                 return StatusCode(500, $"Internal Server Error: {ex.Message}");
             }
         }
-
+/**
         [HttpGet]
         [Route("MUR")]
 
