@@ -153,7 +153,7 @@ namespace IeIAPI
         [HttpGet]
         [Route("MUR")]
 
-        public IActionResult ProcesarMURDatos(string jsonData)
+        public IActionResult ProcesarMURDatos()
         {
             try
             {
@@ -169,14 +169,14 @@ namespace IeIAPI
                     numeros[2] = 0; // Corregidos
                     Console.WriteLine("\n-------------------------------");
                     Console.WriteLine("Inicio de extraccion 1");
-                    string jsonFilePath = "./resultadoXML.json";
-                    string json = System.IO.File.ReadAllText(jsonFilePath);
+                    string jsonFilePath = "./MUR.json";
+                   // string json = System.IO.File.ReadAllText(jsonFilePath);
                     
                    
 
                    
                    
-                    //string json = Extractor3JSON.ExtractorJSON(numeros, jsonData);
+                    string json = Extractor3JSON.ExtractorJSON(numeros, jsonData);
                     Console.WriteLine("data" + json);
                     try
                     {
