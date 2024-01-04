@@ -89,8 +89,9 @@ public IActionResult ProcesarDatos([FromBody] string lines)
                     Console.WriteLine("\n-------------------------------");
                     Console.WriteLine("Inicio de extraccion 1");
 
-                    
-                    XDocument xdoc = XDocument.Parse(doc, LoadOptions.PreserveWhitespace);
+
+                    XDocument xdoc = XDocument.Load(new StringReader(doc), LoadOptions.PreserveWhitespace | LoadOptions.SetLineInfo);
+
 
                     string json = Extractor2XML.Extractor2(numeros, xdoc);
                     Console.WriteLine("data" + json);
@@ -135,7 +136,7 @@ public IActionResult ProcesarDatos([FromBody] string lines)
                 return StatusCode(500, $"Internal Server Error: {ex.Message}");
             }
         }
-/**
+
         [HttpGet]
         [Route("MUR")]
 
@@ -156,12 +157,12 @@ public IActionResult ProcesarDatos([FromBody] string lines)
                     Console.WriteLine("\n-------------------------------");
                     Console.WriteLine("Inicio de extraccion 1");
                     string jsonFilePath = "./MUR.json";
-                   string jsonData = System.IO.File.ReadAllText(jsonFilePath);
-                    
-                   
+                    string jsonData = System.IO.File.ReadAllText(jsonFilePath);
 
-                   
-                   
+
+
+
+
                     string json = Extractor3JSON.ExtractorJSON(numeros, jsonData);
                     Console.WriteLine("data" + json);
                     try
@@ -204,7 +205,8 @@ public IActionResult ProcesarDatos([FromBody] string lines)
                 // Retornar un código de estado 500 con un mensaje de error genérico
                 return StatusCode(500, $"Internal Server Error: {ex.Message}");
             }
-       }*/
+        }
+       
         private static void InsertIntoProvincia(MySqlConnection connection, dynamic data)
         {
             try
@@ -269,6 +271,45 @@ public IActionResult ProcesarDatos([FromBody] string lines)
             catch (Exception ex)
             {
                 //Console.WriteLine("Error inserting into Centro_Educativo: " + data.C_E.nombre + " " + ex.Message);
+            }
+        }
+        [HttpDelete("BorrarDatos")]
+        public IActionResult BorrarDatos()
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Eliminar todos los registros de las tablas
+                    BorrarRegistros(connection, "Centro_Educativo");
+                    BorrarRegistros(connection, "Localidad");
+                    BorrarRegistros(connection, "Provincia");
+
+                    return Ok(new { Mensaje = "Datos borrados exitosamente." });
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error al borrar datos: {ex.Message}");
+            }
+        }
+
+        private void BorrarRegistros(MySqlConnection connection, string tableName)
+        {
+            try
+            {
+                string deleteQuery = $"DELETE FROM {tableName}";
+
+                using (MySqlCommand command = new MySqlCommand(deleteQuery, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error al borrar registros de la tabla {tableName}: {ex.Message}");
             }
         }
     }
