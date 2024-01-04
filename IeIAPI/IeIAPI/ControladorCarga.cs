@@ -21,7 +21,7 @@ namespace IeIAPI
         private static string password = "HA2A2baGAEH2B1f-4A42b1g6c2EbGaB4";
         private static string connectionString = $"Server={host};Port={port};Database={database};User Id={user};Password={password};CharSet=utf8mb4;";
 
-        [HttpGet]
+        [HttpPost]
         [Route("CSV")]
        public IActionResult ProcesarDatos([FromBody] List<string> lines)
     {
