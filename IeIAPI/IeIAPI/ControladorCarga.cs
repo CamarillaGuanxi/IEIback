@@ -268,7 +268,7 @@ public IActionResult ProcesarDatos([FromBody] string lines)
                 //Console.WriteLine("Error inserting into Centro_Educativo: " + data.C_E.nombre + " " + ex.Message);
             }
         }
-        [HttpDelete]
+        [HttpGet]
         [Route("BorrarDatos")]
         public IActionResult BorrarDatos()
         {
