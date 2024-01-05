@@ -8,6 +8,8 @@ using System.Data.SqlClient;
 using Newtonsoft.Json;
 using System.IO;
 using System.Xml.Linq;
+using System.Security.Policy;
+
 namespace IeIAPI
 {
     [ApiController]
@@ -68,7 +70,7 @@ public IActionResult ProcesarDatos([FromBody] string lines)
         return StatusCode(500, $"Internal Server Error: {ex.Message}");
     }
 }
-        /*
+        
         [HttpPost]
         [Route("CAT")]
         public IActionResult ProcesarCATDatos([FromBody] string json)
@@ -87,9 +89,13 @@ public IActionResult ProcesarDatos([FromBody] string lines)
                     numeros[2] = 0; // Corregidos
                     Console.WriteLine("\n-------------------------------");
                     Console.WriteLine("Inicio de extraccion 1");
+                    string url = "https://raw.githubusercontent.com/CamarillaGuanxi/IEIback/main/IeIAPI/IeIAPI/CAT.xml";
+
+                    XDocument doc = XDocument.Load(url);
+
+                    Extractor2XML.Extractor2(numeros, doc);
 
 
-        
                     Console.WriteLine("data" + json);
                     try
                     {
@@ -132,27 +138,9 @@ public IActionResult ProcesarDatos([FromBody] string lines)
                 return StatusCode(500, $"Internal Server Error: {ex.Message}");
             }
         }
-        */
+        
 
-        [HttpPost]
-        [Route("CAT")]
-        public IActionResult ProcesarCATDatos([FromBody] string xmlContent)
-        {
-            try
-            {
-                Console.WriteLine("Se ha llamado al método");
-                Console.WriteLine("XML Recibido: " + xmlContent);
-
-                
-
-                return Ok(new { Mensaje = "Datos XML procesados correctamente." });
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-                return StatusCode(500, $"Internal Server Error: {ex.Message}");
-            }
-        }
+      
 
         [HttpGet]
         [Route("MUR")]
