@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using System.IO;
 using System.Xml.Linq;
 using System.Security.Policy;
+using Org.BouncyCastle.Asn1.Tsp;
 
 namespace IeIAPI
 {
@@ -99,6 +100,7 @@ namespace IeIAPI
                                 // Separar las líneas del CSV
                                 string[] lines = csvContent.Split('\n');
                                 Console.WriteLine(lines[2]);
+                                Console.WriteLine(System.Runtime.InteropServices.RuntimeInformation.OSDescription);
                                 // Procesar el CSV
                                 string json = Extractor1CSV.Extractor1(numeros, lines);
 

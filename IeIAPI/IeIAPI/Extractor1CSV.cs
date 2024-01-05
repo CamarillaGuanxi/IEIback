@@ -18,6 +18,7 @@ using MySql.Data.MySqlClient;
 
 using System.Globalization;
 using System.Text;
+using OpenQA.Selenium.Edge;
 
 namespace IeIAPI
 {
@@ -58,7 +59,7 @@ namespace IeIAPI
                 List<Localidad> loc = new List<Localidad>();
                 List<Provincia> prov = new List<Provincia>();
                 List<Centro_Educativo> cen = new List<Centro_Educativo>();
-                using (IWebDriver driver = new ChromeDriver(options))
+                using (IWebDriver driver = new EdgeDriver())
                 {
                     driver.Manage().Timeouts().PageLoad.Add(TimeSpan.FromSeconds(90000));
                     driver.Manage().Timeouts().AsynchronousJavaScript.Add(TimeSpan.FromSeconds(900000));
