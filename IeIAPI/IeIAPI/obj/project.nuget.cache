@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "NPra6Ts9e8X3OgaCfqZbRP2gvJ/a4sYHCm8AsI4GxGU3X8mYDpMe9aWt5P2VCcyQuSWcpMcFBrCFkPAy32UZsg==",
+  "dgSpecHash": "xj6TiSX9ONU/zsMfi8KrJnwjF8jYylSUwQaTb1F4ctQrw6E+0tdT5Ao6WaFcTIeZyIyx9Nd59JGjPFaURaXZhg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Administrador.WIN-2O4P6U7CI32\\source\\repos\\IeiBACK\\IeIAPI\\IeIAPI\\IeIAPI.csproj",
   "expectedPackageFiles": [
@@ -23,6 +23,7 @@
     "C:\\Users\\Administrador.WIN-2O4P6U7CI32\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Administrador.WIN-2O4P6U7CI32\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Administrador.WIN-2O4P6U7CI32\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Administrador.WIN-2O4P6U7CI32\\.nuget\\packages\\selenium.chrome.webdriver\\85.0.0\\selenium.chrome.webdriver.85.0.0.nupkg.sha512",
     "C:\\Users\\Administrador.WIN-2O4P6U7CI32\\.nuget\\packages\\selenium.support\\4.16.2\\selenium.support.4.16.2.nupkg.sha512",
     "C:\\Users\\Administrador.WIN-2O4P6U7CI32\\.nuget\\packages\\selenium.webdriver\\4.16.2\\selenium.webdriver.4.16.2.nupkg.sha512",
     "C:\\Users\\Administrador.WIN-2O4P6U7CI32\\.nuget\\packages\\selenium.webdriver.chromedriver\\120.0.6099.10900\\selenium.webdriver.chromedriver.120.0.6099.10900.nupkg.sha512",

@@ -280,6 +280,12 @@
           }
         }
       },
+      "Selenium.Chrome.WebDriver/85.0.0": {
+        "type": "package",
+        "build": {
+          "build/Selenium.Chrome.WebDriver.targets": {}
+        }
+      },
       "Selenium.Support/4.16.2": {
         "type": "package",
         "dependencies": {
@@ -1476,6 +1482,19 @@
         "runtimes/win-x86/native/sni.dll",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "Selenium.Chrome.WebDriver/85.0.0": {
+      "sha512": "wRg7it2bBMyYtOsarTy0bWtS2fCZI08KGTef2kH381DYpGP+wX8j6f/7ABv1nmrUj5CCVmTeDeYeXS5g00JXSw==",
+      "type": "package",
+      "path": "selenium.chrome.webdriver/85.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Selenium.Chrome.WebDriver.targets",
+        "driver/chromedriver.exe",
+        "selenium.chrome.webdriver.85.0.0.nupkg.sha512",
+        "selenium.chrome.webdriver.nuspec"
       ]
     },
     "Selenium.Support/4.16.2": {
@@ -2759,6 +2778,7 @@
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.19.4",
       "MySql.Data >= 8.2.0",
       "Newtonsoft.Json >= 13.0.3",
+      "Selenium.Chrome.WebDriver >= 85.0.0",
       "Selenium.Support >= 4.16.2",
       "Selenium.WebDriver >= 4.16.2",
       "Selenium.WebDriver.ChromeDriver >= 120.0.6099.10900",
@@ -2820,6 +2840,10 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
+          },
+          "Selenium.Chrome.WebDriver": {
+            "target": "Package",
+            "version": "[85.0.0, )"
           },
           "Selenium.Support": {
             "target": "Package",
