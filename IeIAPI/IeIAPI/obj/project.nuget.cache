@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "hqr/rPq6qvTZJTFlZ+AzNvb8wacF/YWAutdBGaBbbYn/8P2Hj8am1/WwmKF7koWygMxAG3hRnYeTTArYERUf7Q==",
+  "dgSpecHash": "NPra6Ts9e8X3OgaCfqZbRP2gvJ/a4sYHCm8AsI4GxGU3X8mYDpMe9aWt5P2VCcyQuSWcpMcFBrCFkPAy32UZsg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Administrador.WIN-2O4P6U7CI32\\source\\repos\\IeiBACK\\IeIAPI\\IeIAPI\\IeIAPI.csproj",
   "expectedPackageFiles": [
@@ -23,7 +23,9 @@
     "C:\\Users\\Administrador.WIN-2O4P6U7CI32\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Administrador.WIN-2O4P6U7CI32\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Administrador.WIN-2O4P6U7CI32\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Administrador.WIN-2O4P6U7CI32\\.nuget\\packages\\selenium.support\\4.16.2\\selenium.support.4.16.2.nupkg.sha512",
     "C:\\Users\\Administrador.WIN-2O4P6U7CI32\\.nuget\\packages\\selenium.webdriver\\4.16.2\\selenium.webdriver.4.16.2.nupkg.sha512",
+    "C:\\Users\\Administrador.WIN-2O4P6U7CI32\\.nuget\\packages\\selenium.webdriver.chromedriver\\120.0.6099.10900\\selenium.webdriver.chromedriver.120.0.6099.10900.nupkg.sha512",
     "C:\\Users\\Administrador.WIN-2O4P6U7CI32\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "C:\\Users\\Administrador.WIN-2O4P6U7CI32\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\Administrador.WIN-2O4P6U7CI32\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
