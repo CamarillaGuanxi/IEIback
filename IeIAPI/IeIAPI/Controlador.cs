@@ -28,22 +28,22 @@ namespace IeIAPI
             {
                 List<string> conditions = new List<string>();
 
-                if (!string.IsNullOrWhiteSpace(localidad))
+                if (localidad != "")
                 {
                     conditions.Add($"l.nombre LIKE '%{localidad}%'");
                 }
 
-                if (!string.IsNullOrWhiteSpace(codigoPostal))
+                if (codigoPostal!= "")
                 {
                     conditions.Add($"ce.codigo_postal = '{codigoPostal}'");
                 }
 
-                if (!string.IsNullOrWhiteSpace(provincia))
+                if (provincia != "")
                 {
                     conditions.Add($"p.nombre LIKE '%{provincia}%'");
                 }
 
-                if (!string.IsNullOrWhiteSpace(tipo))
+                if (tipo != "")
                 {
                     conditions.Add($"ce.tipo = '{tipo}'");
                 }
