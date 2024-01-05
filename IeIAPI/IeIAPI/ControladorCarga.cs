@@ -24,53 +24,100 @@ namespace IeIAPI
         private static string password = "HA2A2baGAEH2B1f-4A42b1g6c2EbGaB4";
         private static string connectionString = $"Server={host};Port={port};Database={database};User Id={user};Password={password};CharSet=utf8mb4;";
 
-  [HttpPost]
-[Route("CSV")]
-public IActionResult ProcesarDatos([FromBody] string lines)
-{
-    try
-    {
-        using (MySqlConnection connection = new MySqlConnection(connectionString))
+        /* [HttpPost]
+       [Route("CSV")]
+       public IActionResult ProcesarDatos([FromBody] string lines)
+       {
+           try
+           {
+               using (MySqlConnection connection = new MySqlConnection(connectionString))
+               {
+                   connection.Open();
+
+                   int[] numeros = new int[4];
+                   numeros[0] = 0; // Código localidad
+                   numeros[1] = 0; // Buenos
+                   numeros[2] = 0; // Corregidos
+
+
+
+                   try
+                   {
+                       List<string> c_e = new List<string>();
+                       List<int> pr = new List<int>();
+                       List<int> loc = new List<int>();
+                       dynamic[] dataArray = JsonConvert.DeserializeObject<dynamic[]>(lines);
+
+                       Console.WriteLine("Conexión exitosa!");
+                       foreach (dynamic data in dataArray)
+                       {
+                           InsertIntoProvincia(connection, data);
+                           InsertIntoLocalidad(connection, data);
+                           InsertIntoCentroEducativo(connection, data);
+                       }
+                   }
+                   catch (SqlException ex)
+                   {
+                       // Manejar la excepción de SQL
+                   }
+
+                   return Ok(new { Mensaje = "Datos procesados desde la ruta 'api/carga/CSV'" });
+               }
+           }
+           catch (Exception ex)
+           {
+               Console.WriteLine($"Error: {ex.Message}");
+               return StatusCode(500, $"Internal Server Error: {ex.Message}");
+           }
+       }*/
+        [HttpGet]
+        [Route("CSV")]
+        public IActionResult ProcesarDatos()
         {
-            connection.Open();
-
-            int[] numeros = new int[4];
-            numeros[0] = 0; // Código localidad
-            numeros[1] = 0; // Buenos
-            numeros[2] = 0; // Corregidos
-
-
-
             try
             {
-                List<string> c_e = new List<string>();
-                List<int> pr = new List<int>();
-                List<int> loc = new List<int>();
-                dynamic[] dataArray = JsonConvert.DeserializeObject<dynamic[]>(lines);
-
-                Console.WriteLine("Conexión exitosa!");
-                foreach (dynamic data in dataArray)
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    InsertIntoProvincia(connection, data);
-                    InsertIntoLocalidad(connection, data);
-                    InsertIntoCentroEducativo(connection, data);
+                    connection.Open();
+
+                    int[] numeros = new int[4];
+                    numeros[0] = 0; // Código localidad
+                    numeros[1] = 0; // Buenos
+                    numeros[2] = 0; // Corregidos
+                    string url = "https://raw.githubusercontent.com/CamarillaGuanxi/IEIback/main/IeIAPI/IeIAPI/CV.csv";
+
+                    string[] lines = System.IO.File.ReadAllLines(url);
+                    string json = Extractor1CSV.Extractor1(numeros, lines);
+
+                    try
+                    {
+                        List<string> c_e = new List<string>();
+                        List<int> pr = new List<int>();
+                        List<int> loc = new List<int>();
+                        dynamic[] dataArray = JsonConvert.DeserializeObject<dynamic[]>(json);
+
+                        Console.WriteLine("Conexión exitosa!");
+                        foreach (dynamic data in dataArray)
+                        {
+                            InsertIntoProvincia(connection, data);
+                            InsertIntoLocalidad(connection, data);
+                            InsertIntoCentroEducativo(connection, data);
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        // Manejar la excepción de SQL
+                    }
+
+                    return Ok(new { Mensaje = "Datos procesados desde la ruta 'api/carga/CSV'" });
                 }
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                // Manejar la excepción de SQL
+                Console.WriteLine($"Error: {ex.Message}");
+                return StatusCode(500, $"Internal Server Error: {ex.Message}");
             }
-
-            return Ok(new { Mensaje = "Datos procesados desde la ruta 'api/carga/CSV'" });
         }
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"Error: {ex.Message}");
-        return StatusCode(500, $"Internal Server Error: {ex.Message}");
-    }
-}
-        
         [HttpGet]
         [Route("CAT")]
         public IActionResult ProcesarCATDatos()
