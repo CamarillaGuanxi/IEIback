@@ -3,6 +3,8 @@ using Newtonsoft.Json;
 using MySql.Data.MySqlClient;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
+using System.Text;
+
 namespace IeIAPI
 {
     [ApiController]
@@ -64,7 +66,7 @@ namespace IeIAPI
 
                 Console.WriteLine(query);
 
-                var centros = this.GetYourModels(query);
+                var centros = this.ExecuteQueryAndGetStringResult(query);
                 return Ok(centros);
             }
             catch (Exception ex)
@@ -73,9 +75,9 @@ namespace IeIAPI
             }
         }
 
-        private IEnumerable<object> GetYourModels(string query)
+        private string ExecuteQueryAndGetStringResult(string query)
         {
-            List<object> result = new List<object>();
+            StringBuilder result = new StringBuilder();
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -87,20 +89,19 @@ namespace IeIAPI
                     {
                         while (reader.Read())
                         {
-                            var model = new
+                            // Ejemplo: concatenar cada columna seguida de una coma y un espacio
+                            for (int i = 0; i < reader.FieldCount; i++)
                             {
-                                Id = (int)reader["Codigo"],
-                                nombre = (string)reader["Nombre"],
-                                en_provincia = (int)reader["en_provincia"],
-                            };
-
-                            result.Add(model);
+                                result.Append(reader[i].ToString() + ", ");
+                            }
+                            // Opcional: agregar un salto de línea después de cada fila
+                            result.AppendLine();
                         }
                     }
                 }
             }
 
-            return result;
+            return result.ToString();
         }
     }
 }
