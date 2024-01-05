@@ -25,7 +25,7 @@ namespace IeIAPI
         private static string password = "HA2A2baGAEH2B1f-4A42b1g6c2EbGaB4";
         private static string connectionString = $"Server={host};Port={port};Database={database};User Id={user};Password={password};CharSet=utf8mb4;";
 
-        /* [HttpPost]
+       [HttpPost]
        [Route("CSV")]
        public IActionResult ProcesarDatos([FromBody] string lines)
        {
@@ -70,8 +70,8 @@ namespace IeIAPI
                Console.WriteLine($"Error: {ex.Message}");
                return StatusCode(500, $"Internal Server Error: {ex.Message}");
            }
-       }*/
-        [HttpGet]
+       }
+      /*  [HttpGet]
         [Route("CSV")]
         public IActionResult ProcesarDatos()
         {
@@ -141,7 +141,7 @@ namespace IeIAPI
                 Console.WriteLine($"Error: {ex.Message}");
                 return StatusCode(500, $"Internal Server Error: {ex.Message}");
             }
-        }
+        }*/
         [HttpGet]
     [Route("CAT")]
     public IActionResult ProcesarCATDatos()
@@ -195,7 +195,7 @@ namespace IeIAPI
                     //Console.WriteLine("Error: " + ex.Message);
                 }
 
-                return Ok(new { Mensaje = "Datos procesados desde la ruta 'api/carga/CSV'" });
+                return Ok(new { Mensaje = "Datos procesados desde la ruta 'api/carga/CAT'" });
             }
         }
         catch (Exception ex)
@@ -269,7 +269,7 @@ namespace IeIAPI
                         //Console.WriteLine("Error: " + ex.Message);
                     }
 
-                    return Ok(new { Mensaje = "Datos procesados desde la ruta 'api/carga/CSV'" });
+                    return Ok(new { Mensaje = "Datos procesados desde la ruta 'api/carga/MUR'" });
                 }
             }
             catch (Exception ex)
