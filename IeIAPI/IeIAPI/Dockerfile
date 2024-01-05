@@ -1,3 +1,4 @@
+# Etapa de construcción
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 
@@ -12,11 +13,12 @@ COPY ./CV.csv .
 COPY ./CAT.xml .
 # Debugging commands
 RUN ls -al /app
-# Fase de publicación
+
+# Etapa de publicación
 FROM build AS publish
 RUN dotnet publish -c Release -o /app/publish /p:UseAppHost=false
 
-# Imagen final
+# Etapa final
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS final
 WORKDIR /app
 
