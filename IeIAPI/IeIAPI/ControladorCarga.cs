@@ -68,6 +68,7 @@ public IActionResult ProcesarDatos([FromBody] string lines)
         return StatusCode(500, $"Internal Server Error: {ex.Message}");
     }
 }
+        /*
         [HttpPost]
         [Route("CAT")]
         public IActionResult ProcesarCATDatos([FromBody] string json)
@@ -128,6 +129,26 @@ public IActionResult ProcesarDatos([FromBody] string lines)
                 Console.WriteLine($"StackTrace: {ex.StackTrace}");
 
                 // Retornar un código de estado 500 con un mensaje de error genérico
+                return StatusCode(500, $"Internal Server Error: {ex.Message}");
+            }
+        }
+        */
+
+        [HttpPost]
+        [Route("CAT")]
+        public IActionResult ProcesarCATDatos([FromBody] string xmlContent)
+        {
+            try
+            {
+                Console.WriteLine("XML Recibido: " + xmlContent);
+
+                // Aquí iría el procesamiento del XML
+
+                return Ok(new { Mensaje = "Datos XML procesados correctamente." });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
                 return StatusCode(500, $"Internal Server Error: {ex.Message}");
             }
         }
