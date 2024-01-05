@@ -19,13 +19,18 @@ namespace IeIAPI
         [HttpGet]
         [Route("buscarCentros")]
         public ActionResult<IEnumerable<object>> BuscarCentros(
-            string localidad = null,
-            string codigoPostal = null,
-            string provincia = null,
-            string tipo = null)
+            string localidad = "",
+            string codigoPostal = "",
+            string provincia = "",
+            string tipo = "")
         {
             try
             {
+
+                Console.WriteLine(localidad);
+                Console.WriteLine(codigoPostal);
+                Console.WriteLine(provincia);
+                Console.WriteLine(tipo);
                 List<string> conditions = new List<string>();
 
                 if (localidad != "")
@@ -56,6 +61,8 @@ namespace IeIAPI
                 {
                     query += " WHERE " + string.Join(" AND ", conditions);
                 }
+
+                Console.WriteLine(query);
 
                 var centros = this.GetYourModels(query);
                 return Ok(centros);
