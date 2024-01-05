@@ -16,8 +16,8 @@ COPY ./CAT.xml .
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS install-dependencies
 WORKDIR /app
 
-# Instalar dependencias, por ejemplo, curl y gnupg para obtener Chrome
-RUN apt-get update && apt-get install -y curl gnupg
+# Instalar dependencias, por ejemplo, curl, gnupg, y libglib2.0-0
+RUN apt-get update && apt-get install -y curl gnupg libglib2.0-0
 
 # Descargar e instalar Google Chrome
 RUN curl -sSL https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /usr/share/keyrings/google-chrome-archive-keyring.gpg
