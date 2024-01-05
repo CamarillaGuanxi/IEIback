@@ -98,7 +98,7 @@ namespace IeIAPI
 
                                 // Separar las líneas del CSV
                                 string[] lines = csvContent.Split('\n');
-
+                                Console.WriteLine(lines[2]);
                                 // Procesar el CSV
                                 string json = Extractor1CSV.Extractor1(numeros, lines);
 
