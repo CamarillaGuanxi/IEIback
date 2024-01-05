@@ -35,22 +35,22 @@ namespace IeIAPI
                 Console.WriteLine(tipo);
                 List<string> conditions = new List<string>();
 
-                if (localidad != "")
+                if (localidad != "null")
                 {
                     conditions.Add($"l.nombre LIKE '%{localidad}%'");
                 }
 
-                if (codigoPostal!= "")
+                if (codigoPostal!= "null")
                 {
                     conditions.Add($"ce.codigo_postal = '{codigoPostal}'");
                 }
 
-                if (provincia != "")
+                if (provincia != "null")
                 {
                     conditions.Add($"p.nombre LIKE '%{provincia}%'");
                 }
 
-                if (tipo != "")
+                if (tipo != "null")
                 {
                     conditions.Add($"ce.tipo = '{tipo}'");
                 }
