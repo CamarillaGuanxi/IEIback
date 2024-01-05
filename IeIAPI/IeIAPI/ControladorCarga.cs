@@ -140,9 +140,10 @@ public IActionResult ProcesarDatos([FromBody] string lines)
         {
             try
             {
+                Console.WriteLine("Se ha llamado al método");
                 Console.WriteLine("XML Recibido: " + xmlContent);
 
-                // Aquí iría el procesamiento del XML
+                
 
                 return Ok(new { Mensaje = "Datos XML procesados correctamente." });
             }
