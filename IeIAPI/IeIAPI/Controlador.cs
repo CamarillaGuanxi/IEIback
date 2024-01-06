@@ -35,25 +35,37 @@ namespace IeIAPI
                 Console.WriteLine(tipo);
                 List<string> conditions = new List<string>();
 
-                if (localidad != "null")
-                {
-                    conditions.Add($"l.nombre LIKE '%{localidad}%'");
-                }
+                if (localidad != null)
+                    if (localidad != "")
+                    {
+                        {
+                            conditions.Add($"l.nombre LIKE '%{localidad}%'");
+                        }
+                    }
 
-                if (codigoPostal!= "null")
-                {
-                    conditions.Add($"ce.codigo_postal = '{codigoPostal}'");
-                }
+                if (codigoPostal != null)
+                    if (codigoPostal != "")
+                    {
+                        {
+                            conditions.Add($"ce.codigo_postal = '{codigoPostal}'");
+                        }
+                    }
 
-                if (provincia != "null")
-                {
-                    conditions.Add($"p.nombre LIKE '%{provincia}%'");
-                }
+                if (provincia != null)
+                    if (provincia != "")
+                    {
+                        {
+                            conditions.Add($"p.nombre LIKE '%{provincia}%'");
+                        }
+                    }
 
-                if (tipo != "null")
-                {
-                    conditions.Add($"ce.tipo = '{tipo}'");
-                }
+                if (tipo != null)
+                    if (tipo != "")
+                    {
+                        {
+                            conditions.Add($"ce.tipo = '{tipo}'");
+                        }
+                    }
 
                 string query = "SELECT ce.* FROM Centro_Educativo ce " +
                             "INNER JOIN Localidad l ON ce.en_localidad = l.codigo " +
