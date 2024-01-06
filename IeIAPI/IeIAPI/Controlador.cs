@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using MySql.Data.MySqlClient;
-using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -20,7 +20,7 @@ namespace IeIAPI
 
         [HttpGet]
         [Route("buscarCentros")]
-        public ActionResult<IEnumerable<object>> BuscarCentros(
+        public IActionResult BuscarCentros(
             string localidad = "",
             string codigoPostal = "",
             string provincia = "",
@@ -28,7 +28,6 @@ namespace IeIAPI
         {
             try
             {
-
                 Console.WriteLine(localidad);
                 Console.WriteLine(codigoPostal);
                 Console.WriteLine(provincia);
@@ -39,27 +38,25 @@ namespace IeIAPI
                 {
                     conditions.Add($"l.nombre LIKE '%{localidad}%'");
                 }
-                    
 
                 if (codigoPostal != "null")
                 {
                     conditions.Add($"ce.codigo_postal = '{codigoPostal}'");
                 }
-                    
 
                 if (provincia != "null")
                 {
-                    conditions.Add($"p.nombre LIKE '%{provincia}%'");  
+                    conditions.Add($"p.nombre LIKE '%{provincia}%'");
                 }
 
-                if (tipo != "null") 
-                { 
-                   conditions.Add($"ce.tipo = '{tipo}'");
+                if (tipo != "null")
+                {
+                    conditions.Add($"ce.tipo = '{tipo}'");
                 }
 
                 string query = "SELECT ce.* FROM Centro_Educativo ce " +
-                            "INNER JOIN Localidad l ON ce.en_localidad = l.codigo " +
-                            "INNER JOIN Provincia p ON l.en_provincia = p.codigo";
+                               "INNER JOIN Localidad l ON ce.en_localidad = l.codigo " +
+                               "INNER JOIN Provincia p ON l.en_provincia = p.codigo";
 
                 if (conditions.Count > 0)
                 {
@@ -68,8 +65,8 @@ namespace IeIAPI
 
                 Console.WriteLine(query);
 
-                var centros = this.ExecuteQueryAndGetStringResult(query);
-                Console.WriteLine(centros);
+                var centros = this.ExecuteQueryAndGetResult(query);
+                Console.WriteLine(JsonConvert.SerializeObject(centros));
                 return Ok(centros);
             }
             catch (Exception ex)
@@ -78,9 +75,9 @@ namespace IeIAPI
             }
         }
 
-        private string ExecuteQueryAndGetStringResult(string query)
+        private List<Dictionary<string, object>> ExecuteQueryAndGetResult(string query)
         {
-            StringBuilder result = new StringBuilder();
+            List<Dictionary<string, object>> result = new List<Dictionary<string, object>>();
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -92,19 +89,20 @@ namespace IeIAPI
                     {
                         while (reader.Read())
                         {
-                            // Ejemplo: concatenar cada columna seguida de una coma y un espacio
+                            Dictionary<string, object> row = new Dictionary<string, object>();
+
                             for (int i = 0; i < reader.FieldCount; i++)
                             {
-                                result.Append(reader[i].ToString() + ", ");
+                                row[reader.GetName(i)] = reader[i];
                             }
-                            // Opcional: agregar un salto de línea después de cada fila
-                            result.AppendLine();
+
+                            result.Add(row);
                         }
                     }
                 }
             }
 
-            return result.ToString();
+            return result;
         }
     }
 }
