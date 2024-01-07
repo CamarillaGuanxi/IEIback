@@ -62,7 +62,7 @@ namespace IeIAPI
                        // Manejar la excepción de SQL
                    }
 
-                   return Ok(new { Mensaje = "Datos procesados desde la ruta 'api/carga/CSV'" });
+                   return Ok(json);
                }
            }
            catch (Exception ex)
@@ -195,7 +195,7 @@ namespace IeIAPI
                     //Console.WriteLine("Error: " + ex.Message);
                 }
 
-                return Ok(new { Mensaje = "Datos procesados desde la ruta 'api/carga/CAT'" });
+                return Ok(json);
             }
         }
         catch (Exception ex)
@@ -269,7 +269,7 @@ namespace IeIAPI
                         //Console.WriteLine("Error: " + ex.Message);
                     }
 
-                    return Ok(new { Mensaje = "Datos procesados desde la ruta 'api/carga/MUR'" });
+                    return Ok(json);
                 }
             }
             catch (Exception ex)
