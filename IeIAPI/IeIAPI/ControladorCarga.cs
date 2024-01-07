@@ -62,7 +62,7 @@ namespace IeIAPI
                        // Manejar la excepción de SQL
                    }
 
-                   return Ok(json);
+                   return Ok(lines);
                }
            }
            catch (Exception ex)
