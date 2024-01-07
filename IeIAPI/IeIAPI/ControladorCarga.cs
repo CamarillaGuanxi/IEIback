@@ -35,10 +35,7 @@ namespace IeIAPI
                {
                    connection.Open();
 
-                   int[] numeros = new int[4];
-                   numeros[0] = 0; // Código localidad
-                   numeros[1] = 0; // Buenos
-                   numeros[2] = 0; // Corregidos
+                   
 
 
 
@@ -155,8 +152,8 @@ namespace IeIAPI
 
 
                 int[] numeros = new int[4];
-                numeros[0] = 0; // COdigo localidad
-                numeros[1] = 0; // Buenardos
+                numeros[0] = 50; // COdigo localidad
+                numeros[1] = 50; // Buenardos
                 numeros[2] = 0; // Corregidos
                 Console.WriteLine("\n-------------------------------");
                 Console.WriteLine("Inicio de extraccion 1");
@@ -228,8 +225,8 @@ namespace IeIAPI
 
 
                     int[] numeros = new int[4];
-                    numeros[0] = 0; // COdigo localidad
-                    numeros[1] = 0; // Buenardos
+                    numeros[0] = 20; // COdigo localidad
+                    numeros[1] = 20; // Buenardos
                     numeros[2] = 0; // Corregidos
                     Console.WriteLine("\n-------------------------------");
                     Console.WriteLine("Inicio de extraccion 1");
